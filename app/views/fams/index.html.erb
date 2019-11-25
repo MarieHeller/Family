@@ -4,9 +4,9 @@
   <div class="row">
     <% @fams.each do |fam|  %>
     <div class="col-12 col-md-6 col-lg-4" >
-      <% link_to fam_path(fam) do %>
+      <%= link_to fam_path(fam) do %>
       <div class="card" >
-       <%= cl_image_tag image.photo, crop: :fill, class: "card-image"   %>
+       <%# cl_image_tag image.photo, crop: :fill, class: "card-image"   %>
        <div class="card-body">
         <h2 class="card-text"><%= fam.name %></h2>
         <%= fam.location %>
