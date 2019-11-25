@@ -1,8 +1,9 @@
 class FamsController < ApplicationController
   before_action :set_fam, only: [:show, :destroy, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @fams = Fam.all
+    @fams = policy_scope(Fam).all
   end
 
   def show
@@ -10,23 +11,17 @@ class FamsController < ApplicationController
 
   def new
     @fam = Fam.new
+    authorize @fam
   end
 
   def create
     @fam = Fam.new(fam_params)
+    authorize @fam
     if @fam.save
-      redirect_to bookings_path
+      redirect_to @fam, notice: "Successfully uploaded your family!"
     else
       render :new
     end
-  end
-
-  def destroy
-    @fam.destroy
-    redirect_to bookings_path
-  end
-
-  def edit
   end
 
   def update
@@ -34,10 +29,19 @@ class FamsController < ApplicationController
     redirect_to fam_path(@fam)
   end
 
+  def edit
+  end
+
+  def destroy
+    @fam.destroy
+    redirect_to bookings_path
+  end
+
   private
 
   def set_fam
     @fam = Fam.find(params[:id])
+    authorize @fam
   end
 
   def fam_params
