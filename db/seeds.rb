@@ -63,6 +63,7 @@ user5 = User.create!(first_name: 'Angela',
   nationality: 'german',
   gender: 'female',
   )
+
 fam = Fam.create!(
   name: "The Marcianos",
   members: 6,
@@ -88,3 +89,17 @@ fam = fam = Fam.create!(
   capacity: 4,
   photos: "text",
   user: user2)
+
+# fam = Fam.create!(
+#   name: "The Marcianos",
+#   members: 6,
+#   price: 1000,
+#   cultural_experience: "Morrocan Jews",
+#   language: "French",
+#   housing_type: "House",
+#   location: "Switzerland",
+#   description: "",
+#   capacity: 4,
+#   user_id: 3)
+
+
