@@ -56,7 +56,7 @@ class FamsController < ApplicationController
   end
 
   def fam_params
-    params.require(:fams).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :pictures, :start_date, :end_date)
+    params.require(:fam).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :pictures, :start_date, :end_date)
   end
 
   def user_params
