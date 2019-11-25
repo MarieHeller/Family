@@ -8,6 +8,8 @@
 </ul>
 
 <%= link_to "Home", fams_path%>
-<%= link_to "Edit", edit_user_registration_path(@profile)%>
-<%= link_to "New Fam", new_fam_path%>
+<% if policy(@profile).update? %>
+  <%= link_to "Edit", edit_profile_path%>
+  <%= link_to "New Fam", new_fam_path%>
+<% end %>
 
