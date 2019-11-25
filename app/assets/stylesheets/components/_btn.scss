@@ -16,8 +16,8 @@
 .btn-pink {
   color: white;
   padding: 8px 24px;
-  border-radius: 4px;
-  background: #F2A095;
+  border-radius: 8px;
+  background: #1E2937;
   transition: background 0.3s ease;
   margin-top: 10px;
   height: 32px;
@@ -25,6 +25,8 @@
   padding: opx;
   padding: 0px;
   margin-left: 16px;
+  margin-top: 0px;
+  border: 0.5px solid white;
 }
 
 .btn-pink:hover {
