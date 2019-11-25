@@ -1,14 +1,16 @@
 
 <div class="home" style="background-image: linear-gradient(to left, rgba(30,30, 30, 0.4),rgba(30,30, 30, 0.4)), url(https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
-  <div class="card-header ">
-      <h1>Become part of a family</h1>
+  <div class="header ">
+      <h1>Experience life in a family</h1>
       <h4>Rent your family, feel at home and enjoy your new company</h4>
        <div class="field">
-   <div>
+   <div class="card-header">
      <%= form_for :search, url: fams_path, method: :get do |f| %>
      <%=f.label "Where do want to look for a family?"  %>
-     <%= f.text_field :location %>
-     <%= f.submit "Find Family" %>
+     <div>
+     <%= f.text_field :location, class: "search-location" %>
+     <%= f.submit "Find Family", class: "btn-pink"%>
+     </div>
      <% end %>
    </div>
   </div>

@@ -23,3 +23,31 @@
   color: black;
   text-align: left;
 }
+
+.card-header {
+  background-color: rgb(255,255,255);
+  width: 550px;
+  margin-top: 28px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+}
+
+.card-header:first-child {
+    border-radius: 6px;
+  }
+
+.card-header form {
+  font-size: 12px;
+}
+
+.card-header label {
+  color: grey;
+  margin: auto
+}
+
+.search-location {
+  width: 300px;
+  border-radius: 3px;
+  height: 28px;
+}
