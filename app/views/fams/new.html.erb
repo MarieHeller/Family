@@ -24,7 +24,7 @@
         <%= f.input  :location,
         required: true,
         autofocus: true%>
-        <%= f.input :housing_type,
+        <%= f.input :housing_type, collection: Fam::HOUSING,
         required: true,
         autofocus: true%>
         <%= f.input  :capacity,
@@ -33,7 +33,7 @@
         <%= f.input :price,
         required: true,
         autofocus: true%>
-        <%= f.input :pictures, as: :file, input_html: { multiple: true }%>
+        <%= f.input :pictures, as: :file, input_html: { multiple: true }, required: true %>
       </div>
       <div class="btn btn-success" class="form-actions">
         <%= f.button :submit , "Become a Family!" %>
