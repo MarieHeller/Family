@@ -11,6 +11,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :description, presence: true, length: { in: 50..300 }
   LANGUAGES = %w(english french spanish chinese portuguese german italian russian arabic hebrew japanese korean indian)
-  validates :languges, inclusion: { in: LANGUAGES }
+  validates :language, inclusion: { in: LANGUAGES }
 
 end

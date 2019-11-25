@@ -1,8 +1,12 @@
 class FamsController < ApplicationController
-  before_action :set_fam, only: [:show, :destroy, :edit, :update]
+  before_action :set_fam, only: [:show, :destroy, :edit, :update, :search]
 
   def index
-    @fams = Fam.all
+    if params[:search]
+      @fams = Fam.where(location: params[:search][:location])
+    else
+      @fams = Fam.all
+    end
   end
 
   def show
@@ -34,6 +38,11 @@ class FamsController < ApplicationController
     redirect_to fam_path(@fam)
   end
 
+  def search
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+  end
+
   private
 
   def set_fam
@@ -41,6 +50,6 @@ class FamsController < ApplicationController
   end
 
   def fam_params
-    params.require(:fams).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :photos)
+    params.require(:fams).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :photos, :start_date, :end_date)
   end
 end

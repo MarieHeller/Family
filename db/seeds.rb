@@ -5,9 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Fam.destroy_all
 
 
-user = User.create!(first_name: 'David',
+user1 = User.create!(first_name: 'David',
   last_name: 'Marciano',
   email: 'davidmarciano@gmail.com',
   password: '123456',
@@ -18,7 +20,7 @@ user = User.create!(first_name: 'David',
   gender: 'male',
   )
 
-user = User.create!(first_name: 'Jimmy',
+user2 = User.create!(first_name: 'Jimmy',
   last_name: 'Marciano',
   email: 'jimmymarciano@gmail.com',
   password: '123456',
@@ -29,7 +31,7 @@ user = User.create!(first_name: 'Jimmy',
   gender: 'male',
   )
 
-user = User.create!(first_name: 'Michel',
+user3 = User.create!(first_name: 'Michel',
   last_name: 'Drucker',
   email: 'mrdrucker@gmail.com',
   password: '123456',
@@ -40,7 +42,7 @@ user = User.create!(first_name: 'Michel',
   gender: 'male',
   )
 
-user = User.create!(first_name: 'Javier',
+user4 = User.create!(first_name: 'Javier',
   last_name: 'Peña',
   email: 'agentepena@gmail.com',
   password: '123456',
@@ -51,7 +53,7 @@ user = User.create!(first_name: 'Javier',
   gender: 'male',
   )
 
-user = User.create!(first_name: 'Angela',
+user5 = User.create!(first_name: 'Angela',
   last_name: 'Merkel',
   email: 'queenangela@gmail.de',
   password: '123456',
@@ -61,3 +63,28 @@ user = User.create!(first_name: 'Angela',
   nationality: 'german',
   gender: 'female',
   )
+fam = Fam.create!(
+  name: "The Marcianos",
+  members: 6,
+  price: 1000,
+  cultural_experience: "Morrocan Jews",
+  language: "french",
+  housing_type: "house",
+  location: "Switzerland",
+  description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we'd like to merge commits back in master.How?",
+  capacity: 4,
+  photos: "text",
+  user: user3)
+
+fam = fam = Fam.create!(
+  name: "The Marcianos",
+  members: 6,
+  price: 1000,
+  cultural_experience: "Morrocan Jews",
+  language: "french",
+  housing_type: "house",
+  location: "Palestine",
+  description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we'd like to merge commits back in master.How?",
+  capacity: 4,
+  photos: "text",
+  user: user2)
