@@ -8,9 +8,16 @@
   </button>
 
   <% if user_signed_in? %>
-  <div class="d-flex space-around">
+
+    <div class="search">
+     <%= form_for :search, url: fams_path, method: :get do |f| %>
+     <%= f.text_field :location %>
+     <%= f.submit "Find Family" %>
+     <% end %>
+   </div>
+   <div class="d-flex space-around">
     <div class="nav-link">
-      <%# link_to "Dashboard", bookings_path %>
+      <%# link_to "Dashboard", booking_path %>
     </div>
     <div class="nav-link">
       <%= link_to "Profile", profile_path(current_user) %>
