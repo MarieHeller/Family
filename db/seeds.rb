@@ -72,5 +72,5 @@ user = User.create!(first_name: 'Angela',
 #   location: "Switzerland",
 #   description: "",
 #   capacity: 4,
-#   user_id: 1,)
+#   user_id: 3)
 
