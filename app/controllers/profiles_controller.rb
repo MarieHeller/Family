@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   def show
     set_profile
-    authorize @profile
   end
 
   def edit
@@ -17,6 +16,7 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = User.find(params[:id])
+    authorize @profile
   end
 
   def profile_params
