@@ -8,14 +8,16 @@
   </button>
 
   <% if user_signed_in? %>
-  <div class="link">
-    <%= link_to "My Dashboard", bookings_path %>
-  </div>
-  <div class="link">
-    <%= link_to "Log Out", destroy_user_session_path %>
-  </div>
-  <div class="link">
-    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+  <div class="d-flex space-around">
+    <div class="nav-link">
+      <%= link_to "Dashboard", bookings_path %>
+    </div>
+    <div class="nav-link">
+      <%= link_to "Profile", profiles_path(current.user) %>
+    </div>
+    <div class="nav-link">
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    </div>
   </div>
   <% else %>
   <div class="d-flex space-around">
