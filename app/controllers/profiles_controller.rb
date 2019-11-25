@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     set_profile
+    authorize @profile
   end
 
   def edit
