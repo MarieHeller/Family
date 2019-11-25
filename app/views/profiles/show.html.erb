@@ -1,5 +1,6 @@
 <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
 <p><%= @profile.description %></p>
+<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
 <ul>
   <p>Age: <%= @profile.age %></p>
   <p>From: <%= @profile.nationality %></p>
