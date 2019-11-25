@@ -1,2 +1,20 @@
-<h1>Fams#index</h1>
-<p>Find me in app/views/fams/index.html.erb</p>
+<h1>Families</h1>
+
+<div class="families" style="margin: 30px">
+  <div class="row">
+    <% @fams.each do |fam|  %>
+    <div class="col-12 col-md-6 col-lg-4" >
+      <% link_to fam_path(fam) do %>
+      <div class="card" >
+       <%= cl_image_tag image.photo, crop: :fill, class: "card-image"   %>
+       <div class="card-body">
+        <h2 class="card-text"><%= fam.name %></h2>
+        <%= fam.location %>
+        <p class="card-description"> <%= fam.description %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+  <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoibWFyaWVoZWxsZXIiLCJhIjoiY2syb2txZzNwMHl3dDNibnhmaG5wMTRzZyJ9.e7zokllHBPrHEGthjarzDA'>
+</div>
