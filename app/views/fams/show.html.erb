@@ -5,10 +5,9 @@
       <ul>
         <% @fam.pictures.each do |picture| %>
         <!-- `picture` here is an instance of the Picture model -->
-        <li><%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %></li>
+          <%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %>
         <% end %>
-      </ul>s
-      <%= @fam.photos %>
+      </ul>
     </div>
 
     <div class="container-details col-6 vh-100 py-3">
@@ -22,7 +21,7 @@
        <br>
        <p><%= @fam.description %></p>
      </div>
-     <%= link_to "Book you stay with us", new_fam_booking_path(@fam.id), class: "btn btn-flat" %>
+     <%= link_to "Book your stay with us", new_fam_booking_path(@fam.id), class: "btn btn-flat" %>
    </div>
  </div>
 </div>
