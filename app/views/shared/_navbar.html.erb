@@ -8,7 +8,14 @@
   </button>
 
   <% if user_signed_in? %>
-  <div class="d-flex space-around">
+
+    <div class="search">
+     <%= form_for :search, url: fams_path, method: :get do |f| %>
+     <%= f.text_field :location %>
+     <%= f.submit "Find Family" %>
+     <% end %>
+   </div>
+   <div class="d-flex space-around">
     <div class="nav-link">
       <%= link_to "Become a family", new_fam_path %>
     </div>
