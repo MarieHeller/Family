@@ -1,11 +1,33 @@
-<h1><%= @fam.name %></h1>
+<div class="container">
+  <div class="row">
 
-<ul>
-  <% @fam.pictures.each do |picture| %>
-    <!-- `picture` here is an instance of the Picture model -->
-    <li><%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %></li>
-  <% end %>
-</ul>
-<%= @fam.description %>
+    <div class="images-card col-6 vh-100">
+      <ul>
+        <% @fam.pictures.each do |picture| %>
+        <!-- `picture` here is an instance of the Picture model -->
+        <li><%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %></li>
+        <% end %>
+      </ul>s
+      <%= @fam.photos %>
+    </div>
+
+    <div class="container-details col-6 vh-100 py-3">
+      <h1>Welcome to our page!</h1>
+      <h2>We are the <%= @fam.name %></h2>
+      <div class="card-details">
+       <p><i class="fas fa-users"></i> <%= @fam.members %> Family members</p>
+       <p><i class="fas fa-globe-americas"></i> <%= @fam.cultural_experience %></p>
+       <p><i class="fas fa-language"></i> we speek <%= @fam.language %></p>
+       <p><i class="fas fa-home"></i> we live in a <%= @fam.housing_type %></p>
+       <br>
+       <p><%= @fam.description %></p>
+     </div>
+     <%= link_to "Book you stay with us", new_fam_booking_path(@fam.id), class: "btn btn-flat" %>
+   </div>
+ </div>
+</div>
+
+
+
 
 

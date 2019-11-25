@@ -8,7 +8,6 @@
 User.destroy_all
 Fam.destroy_all
 
-
 user1 = User.create!(first_name: 'David',
   last_name: 'Marciano',
   email: 'davidmarciano@gmail.com',
@@ -72,34 +71,12 @@ fam = Fam.create!(
   language: "french",
   housing_type: "house",
   location: "Switzerland",
+  description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we’d like to merge commits back in master.How?",
+  capacity: 4,
+  photos: "text",
+  user_id: 1,)
   description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we'd like to merge commits back in master.How?",
   capacity: 4,
   photos: "text",
   user: user3)
-
-fam = fam = Fam.create!(
-  name: "The Marcianos",
-  members: 6,
-  price: 1000,
-  cultural_experience: "Morrocan Jews",
-  language: "french",
-  housing_type: "house",
-  location: "Palestine",
-  description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we'd like to merge commits back in master.How?",
-  capacity: 4,
-  photos: "text",
-  user: user2)
-
-# fam = Fam.create!(
-#   name: "The Marcianos",
-#   members: 6,
-#   price: 1000,
-#   cultural_experience: "Morrocan Jews",
-#   language: "French",
-#   housing_type: "House",
-#   location: "Switzerland",
-#   description: "",
-#   capacity: 4,
-#   user_id: 3)
-
 
