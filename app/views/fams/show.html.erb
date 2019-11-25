@@ -2,6 +2,12 @@
   <div class="row">
 
     <div class="images-card col-6 vh-100">
+      <ul>
+        <% @fam.pictures.each do |picture| %>
+        <!-- `picture` here is an instance of the Picture model -->
+        <li><%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %></li>
+        <% end %>
+      </ul>s
       <%= @fam.photos %>
     </div>
 
@@ -20,3 +26,8 @@
    </div>
  </div>
 </div>
+
+
+
+
+

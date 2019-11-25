@@ -4,6 +4,7 @@ class Fam < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
+  has_many :pictures, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true, length: { in: 6..500 }
@@ -12,6 +13,6 @@ class Fam < ApplicationRecord
   validates :language, presence: true, inclusion: { in: LANGUAGES }
   validates :cultural_experience, presence: true
   validates :location, presence: true
-  validates :photos, presence: true
+  validates :pictures, presence: true
 end
 
