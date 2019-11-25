@@ -17,6 +17,42 @@
   font-size: 12px;
 }
 
+.navbar form {
+  font-size: 8px;
+  height: 24px;
+  width: 330px;
+  border-radius: 10px;
+}
+
+.search {
+  text-align: left;
+}
+.search-bar {
+  width: 150px;
+  border-radius: 10px;
+  height: 24px;
+}
+
 a {
   color: grey;
+}
+
+
+.btn-search{
+  color: white;
+  padding: 8px 24px;
+  border-radius: 10px;
+  background: #F2A095;
+  transition: background 0.3s ease;
+  margin: auto;
+  height: 24px;
+  width: 58px;
+  padding: opx;
+  padding: 0px;
+  margin-left: 3px;
+}
+
+.btn-search:hover {
+  background: #385273;
+  color: white;
 }
