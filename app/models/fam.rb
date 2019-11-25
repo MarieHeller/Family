@@ -13,6 +13,6 @@ class Fam < ApplicationRecord
   validates :language, presence: true, inclusion: { in: LANGUAGES }
   validates :cultural_experience, presence: true
   validates :location, presence: true
-  validates :pictures, presence: true
+  # validates :pictures, presence: true
 end
 

@@ -64,9 +64,9 @@ class FamsController < ApplicationController
   end
 
   def create_pictures
-    photos = params.dig(:product, :pictures) || []
+    photos = params.dig(:fam, :pictures) || []
     photos.each do |photo|
-      @product.pictures.create(photo: photo)
+      @fam.pictures.create(photo: photo)
     end
   end
 end
