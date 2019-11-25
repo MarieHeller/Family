@@ -21,7 +21,9 @@ class FamsController < ApplicationController
   def create
     @fam = Fam.new(fam_params)
     authorize @fam
+    @fam.user = current_user
     if @fam.save
+      create_pictures
       redirect_to @fam, notice: "Successfully uploaded your family!"
     else
       render :new
@@ -54,10 +56,17 @@ class FamsController < ApplicationController
   end
 
   def fam_params
-    params.require(:fams).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :photos, :start_date, :end_date)
+    params.require(:fams).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :pictures, :start_date, :end_date)
   end
 
   def user_params
     params.require(:user).permit(:id, :first_name)
+  end
+
+  def create_pictures
+    photos = params.dig(:product, :pictures) || []
+    photos.each do |photo|
+      @product.pictures.create(photo: photo)
+    end
   end
 end
