@@ -43,4 +43,8 @@ class FamsController < ApplicationController
   def fam_params
     params.require(:fams).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :photos)
   end
+
+  def user_params
+    params.require(:user).permit(:id, :first_name)
+  end
 end

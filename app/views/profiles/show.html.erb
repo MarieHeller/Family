@@ -1,0 +1,12 @@
+<h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
+<p><%= @profile.description %></p>
+<ul>
+  <p>Age: <%= @profile.age %></p>
+  <p>From: <%= @profile.nationality %></p>
+  <p>Speaks: <%= @profile.language %></p>
+</ul>
+
+<%= link_to "Home", fams_path%>
+<%= link_to "Edit", edit_profile_path(@profile)%>
+<%= link_to "New Fam", new_fam_path%>
+
