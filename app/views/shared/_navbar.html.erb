@@ -6,17 +6,17 @@
 
   <% if user_signed_in? %>
   <div class="d-flex space-around align-items-center">
-  <%= link_to "/fams", class: "navbar-brand" do %>
-  <%= image_tag "https://static.thenounproject.com/png/643659-200.png" %>
-  <% end %>
+    <%= link_to "/fams", class: "navbar-brand" do %>
+    <%= image_tag "https://static.thenounproject.com/png/643659-200.png" %>
+    <% end %>
 
 
-     <%= form_for :search, url: fams_path, method: :get do |f| %>
-     <%= f.text_field :location, class: "search-bar" %>
-     <%= f.submit "Find Family", class: "btn-search" %>
-     <% end %>
-   </div>
-   <div class="d-flex space-around">
+    <%= form_for :search, url: fams_path, method: :get do |f| %>
+    <%= f.text_field :location, class: "search-bar" %>
+    <%= f.submit "Find Family", class: "btn-search" %>
+    <% end %>
+  </div>
+  <div class="d-flex space-around">
     <div class="nav-link">
       <%= link_to "Become a family", new_fam_path %>
     </div>
@@ -31,7 +31,13 @@
     </div>
   </div>
   <% else %>
-  <div class="d-flex space-around">
+
+    <div>
+      <%= link_to "/fams", class: "navbar-brand" do %>
+      <%= image_tag "https://static.thenounproject.com/png/643659-200.png" %>
+      <% end %>
+    </div>
+    <div class="d-flex space-around">
     <div class="nav-link">
       <%= link_to "Become a family", new_fam_path %>
     </div>

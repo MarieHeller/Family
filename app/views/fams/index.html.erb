@@ -1,12 +1,9 @@
 
 
-<div class="container-index m-4">
+<div class="container-index p-4">
   <h1>Find the perfect Family for you!</h1>
   <h6>We found <%= @fams.length %> families to rent</h6>
   <div class="cards">
-
-    <%# cl_image_tag image.photo, crop: :fill, class: "card-image"   %>
-
     <% @fams.each do |fam|  %>
     <div class="card-family">
         <% if fam.pictures.any? %>

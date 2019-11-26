@@ -1,6 +1,7 @@
+<div class="new-user">
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-4 p-3 mt-4 bg-light shadow-sm">
+  <div class="row-new-user justify-content-center">
+    <div class="form-new-user col-6 p-3 mt-4 bg-light shadow-sm">
       <h2>Sign up</h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -39,11 +40,14 @@
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
       </div>
-      <div class="btn btn-success" class="form-actions">
-        <%= f.button :submit , "Sign up" %>
+      <div class="form-actions">
+        <%= f.button :submit , "Sign up", class: "btn-flat"%>
       </div>
       <% end %>
-      <%= render "devise/shared/links" %>
+      <div class= "log-in-link">
+      <%= render "devise/shared/links", class: "log-in"%>
+      </div>
     </div>
   </div>
+</div>
 </div>
