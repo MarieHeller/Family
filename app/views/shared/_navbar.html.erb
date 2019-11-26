@@ -1,15 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light d-flex navbar-lewagon fixed-top">
-  <%= link_to "/fams", class: "navbar-brand" do %>
-  <%= image_tag "https://static.thenounproject.com/png/643659-200.png" %>
-  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <% if user_signed_in? %>
+  <div class="d-flex space-around align-items-center">
+  <%= link_to "/fams", class: "navbar-brand" do %>
+  <%= image_tag "https://static.thenounproject.com/png/643659-200.png" %>
+  <% end %>
 
-    <div class="search">
+
      <%= form_for :search, url: fams_path, method: :get do |f| %>
      <%= f.text_field :location, class: "search-bar" %>
      <%= f.submit "Find Family", class: "btn-search" %>

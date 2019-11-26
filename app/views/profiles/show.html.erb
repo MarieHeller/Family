@@ -1,15 +1,19 @@
-<h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
-<p><%= @profile.description %></p>
-<%= cl_image_tag @profile.photo, height: 300, width: 400, crop: :fill %>
-<ul>
-  <p>Age: <%= @profile.age %></p>
-  <p>From: <%= @profile.nationality %></p>
-  <p>Speaks: <%= @profile.language %></p>
-</ul>
-
-<%= link_to "Home", fams_path%>
-<% if policy(@profile).update? %>
-  <%= link_to "Edit", edit_user_registration_path%>
-  <%= link_to "New Fam", new_fam_path%>
-<% end %>
-
+<div class="card" style="width: 30rem;">
+<%= cl_image_tag @profile.photo, class: "card-img-top" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h5>
+    <p class="card-text"><%= @profile.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Age: <%= @profile.age %></li>
+    <li class="list-group-item">From: <%= @profile.nationality %></li>
+    <li class="list-group-item">Speaks: <%= @profile.language %></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to "Home", fams_path, class: "card-link"%>
+    <% if policy(@profile).update? %>
+      <%= link_to "Edit", edit_user_registration_path, class: "card-link"%>
+      <%= link_to "New Fam", new_fam_path, class: "card-link"%>
+    <% end %>
+  </div>
+</div>

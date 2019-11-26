@@ -1,3 +1,36 @@
-.container {
-  margin-top: 66px;
+.form-family h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.form-family label {
+  font-size: 12px;
+}
+
+.form-family input {
+  font-size: 12px;
+}
+
+
+.family {
+  background-image: url(family_sunset.jpg);
+  position: -webkit-sticky;
+  position:sticky;
+  top:0;
+  background-position: center;
+  background-size: cover;
+  height: 86vh;
+}
+
+.row-family {
+  height: 80vh;
+  padding-top: 35px;
+  padding-bottom: 27px;
+}
+
+.form-family {
+  overflow: scroll;
+  height: 100%;
+  margin: auto;
+  border-radius: 8px;
 }
