@@ -7,7 +7,24 @@
   color: white;
 }
 
-.card-header {
+.header {
   border-bottom: none;
   padding-top: 240px;
+}
+
+body {
+  padding-top: 66px;
+}
+
+.field {
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+.search-location {
+  width: 300px;
+  border-radius: 8px;
+  height: 28px;
+  padding: 8px;
+  border: 0.5px solid white;
 }

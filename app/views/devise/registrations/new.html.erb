@@ -16,6 +16,15 @@
         <%= f.input  :description,
         required:true,
         autofocus:true %>
+        <%= f.input  :age,
+        required:true,
+        autofocus:true %>
+        <%= f.input  :nationality,
+        required:true,
+        autofocus:true %>
+        <%= f.input  :gender,
+        required:true,
+        autofocus:true %>
         <%= f.input :email,
         required: true,
         autofocus: true,
@@ -27,6 +36,8 @@
         <%= f.input :password_confirmation,
         required: true,
         input_html: { autocomplete: "new-password" } %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
       </div>
       <div class="btn btn-success" class="form-actions">
         <%= f.button :submit , "Sign up" %>

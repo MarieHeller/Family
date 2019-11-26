@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -12,5 +13,4 @@ class User < ApplicationRecord
   validates :description, presence: true, length: { in: 50..300 }
   LANGUAGES = %w(english french spanish chinese portuguese german italian russian arabic hebrew japanese korean indian)
   validates :language, inclusion: { in: LANGUAGES }
-
 end
