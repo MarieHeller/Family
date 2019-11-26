@@ -5,12 +5,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :families
-  has_many :booked_families, through: :bookings, source: :families
+  has_many :fams
+  has_many :bookings
+  # has_many :booked_families, through: :bookings, source: :fams
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :description, presence: true, length: { in: 50..300 }
   LANGUAGES = %w(english french spanish chinese portuguese german italian russian arabic hebrew japanese korean indian)
   validates :language, inclusion: { in: LANGUAGES }
+
+
+  def booked_families
+    arr = []
+    self.bookings.each do |booking|
+      arr << booking.fam
+    end
+    arr
+  end
 end
