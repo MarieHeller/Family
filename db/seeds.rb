@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+Booking.destroy_all
 Fam.destroy_all
+User.destroy_all
 
 user1 = User.create!(first_name: 'David',
   last_name: 'Marciano',
@@ -73,10 +74,7 @@ fam = Fam.create!(
   location: "Switzerland",
   description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we’d like to merge commits back in master.How?",
   capacity: 4,
-  photos: "text",
-  user_id: 1,)
-  description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we'd like to merge commits back in master.How?",
-  capacity: 4,
-  photos: "text",
-  user: user3)
+  # photos: "text",
+  user: user3
+  )
 
