@@ -1,4 +1,4 @@
-// scss for the fams#show
+// scss fams#show
 
 .container-details {
   background-color: $orange;
@@ -11,7 +11,7 @@
   margin: 2px 8px;
   padding: 8px;
   border-radius: 8px;
-  color: black;
+  color: $blue;
   text-align: left;
 }
 
@@ -19,18 +19,21 @@
 .container-index {
   background-color: $orange;
   text-align: center;
+  color: $blue;
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin: 15px;
 }
 
 .card-family {
   overflow: hidden;
-  background: $white;
+  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
 }
 
 .card-family h2 {
@@ -47,11 +50,20 @@
 
 
 .card-family .card-family-info {
+  text-align: left;
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+}
+
+.card-family .card-family-pricing {
+  // text-align: right;
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
 
 
@@ -89,6 +101,8 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+// scss page#home
 
 .card-header {
   background-color: rgb(255,255,255);
