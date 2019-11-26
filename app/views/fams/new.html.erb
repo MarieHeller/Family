@@ -1,7 +1,7 @@
-<div class="family" style="background-image: url(https://images.pexels.com/photos/160994/family-outdoor-happy-happiness-160994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)"" >
+<div class="family">
 <div class = 'container' >
-  <div class="row justify-content-center">
-    <div class="col-6 p-3 mt-4 bg-light shadow-sm">
+  <div class="row-family justify-content-center">
+    <div class="form-family col-10 p-3 mt-4 bg-light shadow-sm">
       <h2>Become a family!</h2>
       <%= simple_form_for(@fam) do |f| %>
       <%= f.error_notification %>
@@ -35,8 +35,8 @@
         autofocus: true%>
         <%= f.input :pictures, as: :file, input_html: { multiple: true }, required: true %>
       </div>
-      <div class="btn btn-success" class="form-actions">
-        <%= f.button :submit , "Become a Family!" %>
+      <div class="form-actions">
+        <%= f.button :submit , "Become a Family!", class: "btn-flat" %>
       </div>
       <% end %>
     </div>
