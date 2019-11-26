@@ -6,7 +6,7 @@ class FamsController < ApplicationController
     if params[:search]
       @fams = policy_scope(Fam).where(location: params[:search][:location])
     else
-      @fams = Fam.geocoded
+      @fams = policy_scope(Fam).where.not(latitude: nil)
 
       @markers = @fams.map do |fam|
         {
