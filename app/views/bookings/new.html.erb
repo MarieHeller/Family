@@ -1,0 +1,23 @@
+
+
+<h1>Bookings</h1>
+
+
+
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+<%= simple_form_for([@fam, @booking]) do |f| %>
+<%= f.input :number_of_guests  %>
+ <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Book this family", class: "btn btn-primary" %>
+
+<% end %>
+
+
+
+  </div>
+</div>
+
+
+</html>
