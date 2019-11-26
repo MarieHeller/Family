@@ -16,13 +16,12 @@
 .btn-pink {
   color: white;
   padding: 8px 24px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #1E2937;
   transition: background 0.3s ease;
   margin-top: 10px;
   height: 32px;
   width: 80px;
-  padding: opx;
   padding: 0px;
   margin-left: 16px;
   margin-top: 0px;
@@ -30,6 +29,14 @@
 }
 
 .btn-pink:hover {
-  background: #385273;
+  background: grey;
   color: white;
 }
+
+.btn-pink .submit {
+  font-size: 10px;
+  width: 116px;
+  height: 32px;
+  margin-left: 208px;
+  margin-top: 20px;
+  }

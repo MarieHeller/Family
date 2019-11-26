@@ -36,6 +36,12 @@
 
 a {
   color: grey;
+
+}
+
+.nav-link a:hover {
+  color: #385273;
+  text-decoration: none;
 }
 
 
@@ -48,13 +54,12 @@ a {
   margin: auto;
   height: 24px;
   width: 58px;
-  padding: opx;
   padding: 0px;
   margin-left: 3px;
   border: 0.5px solid white;
 }
 
 .btn-search:hover {
-  background: #385273;
+  background: grey;
   color: white;
 }
