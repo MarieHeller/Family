@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row">
 
-    <div class="images-card col-6 vh-100">
+    <div class="images-card col-6">
       <ul>
         <% @fam.pictures.each do |picture| %>
-        <!-- `picture` here is an instance of the Picture model -->
           <%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %>
         <% end %>
       </ul>
     </div>
 
-    <div class="container-details col-6 vh-100 py-3">
+    <div class="container-details col-6 py-3">
       <h1>Welcome to our page!</h1>
       <h2>We are the <%= @fam.name %></h2>
       <div class="card-details">

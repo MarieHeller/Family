@@ -34,13 +34,6 @@
         required: true,
         autofocus: true,
         input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
-        required: true,
-        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-        input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-        required: true,
-        input_html: { autocomplete: "new-password" } %>
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>  </div>
 
@@ -49,8 +42,6 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <div>
+    <%= link_to "Back", :back %>
+  </div>

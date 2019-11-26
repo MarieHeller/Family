@@ -73,10 +73,6 @@ fam = Fam.create!(
   location: "Switzerland",
   description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we’d like to merge commits back in master.How?",
   capacity: 4,
-  photos: "text",
-  user_id: 1,)
-  description: "Finishing a feature Using branches, we work on different parts of a project at the same time. When a feature is finished, we'd like to merge commits back in master.How?",
-  capacity: 4,
-  photos: "text",
-  user: user3)
+  user: user3
+  )
 

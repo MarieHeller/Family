@@ -1,20 +1,32 @@
-<h1>Families</h1>
 
-<div class="families" style="margin: 30px">
-  <div class="row">
+
+<div class="container-index m-4">
+  <h1>Find the perfect Family for you!</h1>
+  <div class="cards">
+
+    <%# cl_image_tag image.photo, crop: :fill, class: "card-image"   %>
+
     <% @fams.each do |fam|  %>
-    <div class="col-12 col-md-6 col-lg-4" >
-      <%= link_to fam_path(fam) do %>
-      <div class="card" >
-       <%# cl_image_tag image.photo, crop: :fill, class: "card-image"   %>
-       <div class="card-body">
-        <h2 class="card-text"><%= fam.name %></h2>
-        <%= fam.location %>
-        <p class="card-description"> <%= fam.description %></p>
+    <div class="card-family">
+        <% if fam.pictures.any? %>
+          <%= cl_image_tag fam.pictures.first.photo, crop: :fill, class: "card-family-image" %>
+        <% else %>
+          <%= image_tag "default_family.jpg", crop: :fill, class: "card-family-image" %>
+        <% end %>
+      <div class="card-family-info">
+        <div>
+          <%= link_to fam_path(fam) do %>
+          <h2><%= fam.name %></h2>
+          <% end %>
+          <p><i class="fas fa-globe-americas"></i> <%= fam.cultural_experience %></p>
+        </div>
       </div>
+      <h2 class="card-family-pricing"><%= fam.price %></h2>
     </div>
     <% end %>
   </div>
-  <% end %>
   <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoibWFyaWVoZWxsZXIiLCJhIjoiY2syb2txZzNwMHl3dDNibnhmaG5wMTRzZyJ9.e7zokllHBPrHEGthjarzDA'>
 </div>
+
+
+
