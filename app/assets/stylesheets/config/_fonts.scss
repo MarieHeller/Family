@@ -1,9 +1,15 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url('https://fonts.googleapis.com/css?family=Baskervville|Ibarra+Real+Nova&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: "Poppins", "Helvetica", "sans-serif", light;
+$headers-font: "Poppins", "Helvetica", "serif";
+$logo-font: 'Pacifico', cursive;
+
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +20,7 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// font-family: 'Ibarra Real Nova', serif;
+// font-family: 'Baskervville', serif;
+// font-family: 'Roboto', sans-serif;
