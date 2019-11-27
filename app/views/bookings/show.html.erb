@@ -7,8 +7,7 @@
     <p><strong>Number of guests: </strong><%= @booking.number_of_guests %></p>
     <p> <strong>Status of the booking:</strong> <%= @booking.status %></p>
 
-    <%= link_to 'Add a review', new_booking_bookings_review_path(@booking)%>
-    <% if user = current_user %>
+    <% if @booking.fam.user == current_user %>
       <%= link_to 'Accept', accept_path(@booking), class: "btn btn-primary"%>
       <%= link_to 'Decline', decline_path(@booking), class: "btn btn-primary"%>
     <% end %>

@@ -22,7 +22,7 @@
         <%= f.input :housing_type, collection: Fam::HOUSING,
         required: true,
         autofocus: true%>
-        <%= f.input  :capacity,
+        <%= f.input  :capacity, collection: Fam::CAPACITY,
         required: true,
         autofocus: true%>
         <%= f.input :price,
