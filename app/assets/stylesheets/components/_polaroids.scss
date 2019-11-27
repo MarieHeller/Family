@@ -98,3 +98,24 @@
   box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
   transition: all 0.35s;
 }
+
+.profile {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+  margin-left: 30px;
+  width: 190px;
+  text-align: center;
+  margin-bottom: 30px;
+  height: 225px;
+}
+
+.profile > img {
+  max-width: 100%;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+
+
