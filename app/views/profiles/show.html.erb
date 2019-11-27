@@ -1,61 +1,62 @@
-<div class="container my-4">
+<div class="profile-page">
 
-  <h2>My Profile</h2>
-  <div class="user-card" style="width: 30rem; background-color: white; padding-left: 10px;">
-    <div class="d-flex align-items-center">
-      <%= cl_image_tag @profile.photo, class: "user-avatar-profile" %>
-
-      <div class="card-body">
-        <h5 class="card-title">Hi my name is <%= @profile.first_name %> <%= @profile.last_name %></h5>
-        <p class="card-text"><%= @profile.description %></p>
+  <div class="row">
+    <div class="col-5">
+      <h1 class= "profile-header">My Profile</h1>
+      <div class="d-flex">
+        <div class="wrapper">
+          <div class="profile"><%= cl_image_tag @profile.photo %>
+            <div class="profile-caption"><%= @profile.first_name %> <%= @profile.last_name %></div>
+          </div>
+        </div>
+        <div>
+          <p class="profile-text"><%= @profile.description %></p>
+          <div class= "profile-list">
+            <ul>
+              <li class="list-inline-item"><i class="fas fa-birthday-cake"></i> I am <%= @profile.age %> years old</li>
+              <li class="list-inline-item"><i class="fas fa-globe-americas"></i> I am <%= @profile.nationality %></li>
+              <li class="list-inline-item"><i class="fas fa-language"></i> I speak <%= @profile.language %></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <ul class="list-inline text-center">
-      <li class="list-inline-item"><i class="fas fa-birthday-cake"></i> I am <%= @profile.age %> old</li>
-      <li class="list-inline-item"><i class="fas fa-globe-americas"></i> I am from <%= @profile.nationality %></li>
-      <li class="list-inline-item"><i class="fas fa-language"></i> I speak <%= @profile.language %></li>
-    </ul>
 
-    <div class="card-body">
-      <ul class="list-inline text-center">
-        <% if policy(@profile).update? %>
-          <li class="list-inline-item"><%= link_to "Create Family", new_fam_path, class: "card-link btn btn-primary"%></li>
-        <% end %>
-        <li class="list-inline-item"><%= link_to "Edit my profile", new_fam_path, class: "card-link btn btn-primary"%></li>
-        <li class="list-inline-item"><%= link_to "Delete Profile", new_fam_path, class: "card-link btn btn-primary"%></li>
-      </ul>
+    <div class= "col-7">
+      <h1 class= "family-header">My Families</h1>
+      <% @profile.fams.each do |fam| %>
+        <div class="d-flex">
+          <div class="wrapper">
+            <div class="family-profile"><% fam.pictures.each do |picture| %>
+              <%= cl_image_tag picture.photo, class: "card-img-top" %>
+              <% end %>
+              <div class="family-title"><%= fam.name %> </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="family-caption"><%= fam.description %></p>
+            <% if policy(@profile).update? %>
+              <div class="family-links">
+                <%= link_to "Show", fam_path(fam), class: "card-link btn btn-primary"%>
+                <%= link_to "Delete", fam_path(fam), method: :delete, class: "card-link btn btn-primary"%>
+              </div>
+            <% end %>
+      <% end %>
+        </div>
+      </div>
     </div>
   </div>
-
-  <h2>My Fams</h2>
-
-  <% @profile.fams.each do |fam| %>
-    <div class="card" style="width: 30rem;">
-      <% fam.pictures.each do |picture| %>
-      <%= cl_image_tag picture.photo, class: "card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= fam.name %></h5>
-        <p class="card-text"><%= fam.description %></p>
-      </div>
-
-      <div class="card-body">
-        <% if policy(@profile).update? %>
-        <%= link_to "Show", fam_path(fam), class: "card-link btn btn-primary"%>
-        <%= link_to "Delete", fam_path(fam), method: :delete, class: "card-link btn btn-primary"%>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-
-  <h2>Bookings</h2>
+</div>
 
 
+<div>
+  <h2>My Bookings</h2>
   <% @profile.bookings.each do |booking| %>
     <% booked_fam = booking.fam %>
     <div class="card" style="width: 30rem;">
-    <% booked_fam.pictures.each do |picture| %>
-      <%= cl_image_tag picture.photo, class: "card-img-top" %>
+      <% booked_fam.pictures.each do |picture| %>
+        <%= cl_image_tag picture.photo, class: "card-img-top" %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= booked_fam.name %></h5>
@@ -71,6 +72,7 @@
     </div>
   <% end %>
 
+
   <h2>Requests</h2>
 
   <% my_fam = @profile.fams.each do |fam| %>
@@ -84,5 +86,4 @@
       <% end %>
     </div>
   <% end %>
-
 </div>
