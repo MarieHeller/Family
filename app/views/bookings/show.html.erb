@@ -8,8 +8,14 @@
     <p> <strong>Status of the booking:</strong> <%= @booking.status %></p>
 
     <% if @booking.fam.user == current_user %>
-      <%= link_to 'Accept', accept_path(@booking), class: "btn btn-primary"%>
-      <%= link_to 'Decline', decline_path(@booking), class: "btn btn-primary"%>
+      <% if @booking.status == 'accepted' %>
+        <%= link_to 'Cancel', decline_path(@booking), class: "btn btn-primary"%>
+      <% elsif @booking.status == 'declined' %>
+        <%= link_to 'Accept', accept_path(@booking), class: "btn btn-primary"%>
+      <% else %>
+        <%= link_to 'Accept', accept_path(@booking), class: "btn btn-primary"%>
+        <%= link_to 'Decline', decline_path(@booking), class: "btn btn-primary"%>
+      <% end %>
     <% end %>
     <img src="https://media2.giphy.com/media/VzQ9PUdifClRm/giphy.gif" alt="Friends">
   </div>
