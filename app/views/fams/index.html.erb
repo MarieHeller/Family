@@ -1,11 +1,12 @@
 <div class="d-flex">
   <div class="col-8">
-    <div class="container text-center pt-4">
+    <div class="container text-center pt-5">
       <h1>Find the perfect Family for you!</h1>
-      <h6>We found <%= @fams.length %> families to rent</h6>
+      <p>We found <%= @fams.length %> families to rent</p>
     </div>
 
       <% @fams.each do |fam|  %>
+        <%= link_to fam_path(fam) do %>
         <div class="item">
           <div class="polaroid">
             <% if fam.pictures.any? %>
@@ -14,13 +15,13 @@
               <%= image_tag "default_family.jpg" %>
             <% end %>
             <div class="caption pt-2">
-              <%= link_to fam_path(fam) do %>
                 <h5><%= fam.name %></h5>
-              <% end %>
-              <p><i class="fas fa-globe-americas"></i> <%= fam.cultural_experience %></p>
+              <!-- <i class="fas fa-globe-americas"> -->
+              <p></i> <%= fam.cultural_experience %></p>
               <p class="text-right m-0"><%= fam.price %> €/night</p>
             </div>
           </div>
+        <% end %>
         </div>
       <% end %>
   </div>
