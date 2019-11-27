@@ -13,7 +13,7 @@ class Fam < ApplicationRecord
   validates :description, presence: true, length: { in: 6..500 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :housing_type, presence: true, inclusion: { in: HOUSING }
-  validates :language, presence: true, inclusion: { in: LANGUAGES }
+  validates :language, presence: true
   validates :cultural_experience, presence: true
   validates :location, presence: true
   validates :capacity, presence: true, inclusion: { in: CAPACITY }
