@@ -1,6 +1,6 @@
- @IMPORT <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+ // @IMPORT <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
 
-* {
+.polaroid-true {
   box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@
 }
 .polaroid > img {
   max-width: 100%;
-  width: 200px;
+  width: 250px;
   height: 150px;
   object-fit: cover;
 }

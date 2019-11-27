@@ -1,12 +1,16 @@
+<div class="polaroid-true">
 <div class="container">
 
   <div class="row justify-content-center">
 
     <div class="images-card pt-5">
       <% @fam.pictures.each do |picture| %>
-        <div class="polaroid item">
+      <div class="item">
+
+        <div class="polaroid">
           <%= cl_image_tag(picture.photo) %>
         </div>
+      </div>
       <% end %>
     </div>
   </div>
@@ -39,4 +43,5 @@
     </div>
 
  </div>
+</div>
 </div>
