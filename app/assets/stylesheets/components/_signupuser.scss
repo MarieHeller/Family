@@ -1,36 +1,43 @@
-.form-family h2 {
+.form-new-user h2 {
   text-align: center;
   font-size: 24px;
 }
 
-.form-family label {
+.form-new-user label {
   font-size: 12px;
 }
 
-.form-family input {
+.form-new-user input {
   font-size: 12px;
 }
 
-
-.family {
-  background-image: url(family_sunset.jpg);
+.new-user {
+  background-image: url(asset-path('family_sunset.jpg'));
   position: -webkit-sticky;
   position:sticky;
   top:0;
   background-position: center;
   background-size: cover;
   height: 86vh;
+  margin-top: 21px;
 }
 
-.row-family {
+.row-new-user {
   height: 80vh;
   padding-top: 35px;
   padding-bottom: 27px;
 }
 
-.form-family {
+.form-new-user {
   overflow: scroll;
   height: 100%;
   margin: auto;
   border-radius: 8px;
 }
+
+.log-in-link {
+  font-size: 12px;
+  padding-top: 16px;
+}
+
+

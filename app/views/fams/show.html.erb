@@ -4,7 +4,7 @@
     <div class="images-card col-6">
       <ul>
         <% @fam.pictures.each do |picture| %>
-          <%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %>
+          <%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill, class: "image-show") %>
         <% end %>
       </ul>
     </div>
@@ -24,8 +24,3 @@
    </div>
  </div>
 </div>
-
-
-
-
-
