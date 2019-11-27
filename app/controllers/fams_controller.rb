@@ -9,7 +9,7 @@ class FamsController < ApplicationController
       @fams = policy_scope(Fam).where.not(latitude: nil)
       @markers = @fams.map do |fam|
         {
-          lat: fam.latitude,
+          lat: fam.latitudeude,
           lng: fam.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam }),
         # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
