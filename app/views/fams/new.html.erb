@@ -3,42 +3,7 @@
   <div class="row-family justify-content-center">
     <div class="form-family col-10 p-3 mt-4 bg-light shadow-sm">
       <h2>Become a family!</h2>
-      <%= simple_form_for(@fam) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :name,
-        required: true,
-        autofocus: true%>
-        <%= f.input  :description,
-        required: true,
-        autofocus: true%>
-        <%= f.input :cultural_experience,
-        required: true,
-        autofocus: true%>
-        <%= f.input  :members,
-        required: true,
-        autofocus: true%>
-        <%= f.input :language, collection: User::LANGUAGES,
-        required: true,
-        autofocus: true%>
-        <%= f.input  :location,
-        required: true,
-        autofocus: true%>
-        <%= f.input :housing_type, collection: Fam::HOUSING,
-        required: true,
-        autofocus: true%>
-        <%= f.input  :capacity,
-        required: true,
-        autofocus: true%>
-        <%= f.input :price,
-        required: true,
-        autofocus: true%>
-        <%= f.input :pictures, as: :file, input_html: { multiple: true }, required: true %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit , "Become a Family!", class: "btn-flat" %>
-      </div>
-      <% end %>
+      <%= render 'form', fam:@fam %>
     </div>
   </div>
 </div>
