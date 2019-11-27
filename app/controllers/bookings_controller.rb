@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
   def destroy
     set_booking
     @booking.delete
-    redirect_to @profile, notice: "Booking Canceled!"
+    redirect_to profile_path(current_user), notice: "Booking Canceled!"
   end
 
   private
