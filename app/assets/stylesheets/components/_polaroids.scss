@@ -12,9 +12,11 @@
 }
 .polaroid > img {
   max-width: 100%;
-  height: auto;
+  width: 200px;
+  height: 150px;
   object-fit: cover;
 }
+
 .caption {
   // text-align: center;
   // line-height: 2em;
