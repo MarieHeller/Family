@@ -25,6 +25,25 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def edit
+    set_booking
+  end
+
+  def update
+    set_booking
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: "Successfully changed your booking!"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    set_booking
+    @booking.delete
+    redirect_to @profile, notice: "Booking Canceled!"
+  end
+
   private
 
   def booking_params
