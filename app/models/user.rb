@@ -14,13 +14,4 @@ class User < ApplicationRecord
   validates :description, presence: true, length: { in: 50..300 }
   LANGUAGES = %w(english french spanish chinese portuguese german italian russian arabic hebrew japanese korean indian)
   validates :language, inclusion: { in: LANGUAGES }
-
-
-  def booked_families
-    arr = []
-    self.bookings.each do |booking|
-      arr << booking.fam
-    end
-    arr
-  end
 end

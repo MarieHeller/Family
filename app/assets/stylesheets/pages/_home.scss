@@ -1,20 +1,21 @@
 // Specific CSS for your home-page
+body {
+  padding-top: 44px;
+}
+
 .home {
   background-position: center;
   background-size: cover;
-  height: 86vh;
+  height: 100vh;
   text-align: center;
   color: white;
 }
 
 .header {
   border-bottom: none;
-  padding-top: 240px;
+  padding-top: 150px;
 }
 
-body {
-  padding-top: 44px;
-}
 
 .field {
   font-size: 12px;
@@ -29,4 +30,12 @@ body {
   border: 0.5px solid white;
   background-color: transparent;
   color: white;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+.header-logo {
+  font-family: $logo-font;
+  font-style: bold;
+  font-size: 50px;
 }

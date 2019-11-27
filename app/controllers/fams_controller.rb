@@ -46,43 +46,50 @@ class FamsController < ApplicationController
     end
   end
 
-  def update
-    @fam.update(fam_params)
-    redirect_to fam_path(@fam)
-  end
-
   def edit
-  end
-
-  def destroy
-    @fam.destroy
-    redirect_to bookings_path
-  end
-
-  def search
-    @start_date = params[:start_date]
-    @end_date = params[:end_date]
-  end
-
-  private
-
-  def set_fam
     @fam = Fam.find(params[:id])
     authorize @fam
   end
 
-  def fam_params
-    params.require(:fam).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :pictures, :start_date, :end_date)
-  end
-
-  def user_params
-    params.require(:user).permit(:id, :first_name)
-  end
-
-  def create_pictures
-    photos = params.dig(:fam, :pictures) || []
-    photos.each do |photo|
-      @fam.pictures.create(photo: photo)
+  def update
+    authorize @fam
+    if @fam.update(fam_params)
+      redirect_to fam_path(@fam)
+    else
+      render :edit
     end
   end
+
+def destroy
+  authorize @fam
+  @fam.destroy
+  redirect_to fams_path
+end
+
+def search
+  @start_date = params[:start_date]
+  @end_date = params[:end_date]
+end
+
+private
+
+def set_fam
+  @fam = Fam.find(params[:id])
+  authorize @fam
+end
+
+def fam_params
+  params.require(:fam).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :pictures, :start_date, :end_date)
+end
+
+def user_params
+  params.require(:user).permit(:id, :first_name)
+end
+
+def create_pictures
+  photos = params.dig(:fam, :pictures) || []
+  photos.each do |photo|
+    @fam.pictures.create(photo: photo)
+  end
+end
 end
