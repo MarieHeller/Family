@@ -27,6 +27,8 @@ class FamsController < ApplicationController
   end
 
   def show
+    @fam = Fam.find(params[:id])
+    authorize @fam
     @booking = Booking.new
   end
 

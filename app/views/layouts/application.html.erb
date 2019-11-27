@@ -18,12 +18,9 @@
 
     <%= yield %>
 
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
-  <div class="footer">
-  <div class="footer-copyright">
-    With <i class="fas fa-heart"></i> from Tel Aviv
-  </div>
-</div>
+
   </html>
