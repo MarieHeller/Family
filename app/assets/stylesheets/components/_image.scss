@@ -1,7 +1,17 @@
-.image-show {
-  margin-top: 25px;
-  border-radius: 8px;
-  border: 2px solid $orange;
+.image-show-big {
+  // margin-top: 25px;
+  border-radius: 4px;
+  width: 410px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-bottom {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 5px;
 }
 
 .user-avatar-profile {
