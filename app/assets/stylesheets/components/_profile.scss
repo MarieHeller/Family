@@ -4,10 +4,54 @@
 }
 
 .profile-text {
-  margin-left: 40px;
+  margin-left: 20px;
+  font-size: 14px;
+  margin-top: 40px;
+  text-align: justify;
+}
+
+.profile-list ul {
+  font-size: 14px;
+   padding-left: 0px;
+   margin-left: 20px;
 }
 
 .profile-header {
   margin-left: 30px;
-  margin-top: 30px;
+  margin-top: 40px;
+  font-size: 32px;
 }
+
+
+.family-title {
+  font-family: 'Shadows Into Light Two', cursive;
+  padding-top: 16px;
+}
+
+.family-header {
+  margin-left: 8px;
+  margin-top: 40px;
+  font-size: 32px;
+}
+
+.family-caption {
+  margin-left: 20px;
+  margin-top: 40px;
+  text-align: justify;
+  font-size: 14px;
+}
+
+.family-links {
+  margin-left: 60px;
+}
+
+
+// .profile-text {
+//   margin-left: 40px;
+// }
+
+// .profile-header {
+//   margin-left: 30px;
+//   margin-top: 30px;
+//   font-size: 32px;
+// }
