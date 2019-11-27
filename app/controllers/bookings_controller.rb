@@ -44,6 +44,22 @@ class BookingsController < ApplicationController
     redirect_to profile_path(current_user), notice: "Booking Canceled!"
   end
 
+  def accept
+    set_booking
+    authorize @booking
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to @booking, notice: "Booking accepted"
+  end
+
+  def decline
+    set_booking
+    authorize @booking
+    @booking.status = "declined"
+    @booking.save
+    redirect_to @booking, notice: "Booking declined"
+  end
+
   private
 
   def booking_params
