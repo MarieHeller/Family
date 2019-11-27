@@ -24,8 +24,17 @@
         <% end %>
         </div>
       <% end %>
+      <% if fam.user == current_user %>
+      <%= link_to fam_path(fam), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    <% end %>
+    <% if fam.user == current_user %>
+      <%= link_to edit_fam_path(fam) do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+    <% end %>
   </div>
-
   <div class="col-4">
     <div
       id="map"
