@@ -1,28 +1,40 @@
-<div class="card" style="width: 30rem;">
-<%= cl_image_tag @profile.photo, class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h5>
-    <p class="card-text"><%= @profile.description %></p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Age: <%= @profile.age %></li>
-    <li class="list-group-item">From: <%= @profile.nationality %></li>
-    <li class="list-group-item">Speaks: <%= @profile.language %></li>
-  </ul>
-  <div class="card-body">
-    <% if policy(@profile).update? %>
-      <%= link_to "Create Family", new_fam_path, class: "card-link btn btn-primary"%>
-    <% end %>
-  </div>
-</div>
+<div class="container my-4">
 
-<h2>My Fams</h2>
+  <h2>My Profile</h2>
+  <div class="user-card" style="width: 30rem; background-color: white; padding-left: 10px;">
+    <div class="d-flex align-items-center">
+      <%= cl_image_tag @profile.photo, class: "user-avatar-profile" %>
 
-<% @profile.fams.each do |fam| %>
+      <div class="card-body">
+        <h5 class="card-title">Hi my name is <%= @profile.first_name %> <%= @profile.last_name %></h5>
+        <p class="card-text"><%= @profile.description %></p>
+      </div>
+    </div>
+    <ul class="list-inline text-center">
+      <li class="list-inline-item"><i class="fas fa-birthday-cake"></i> I am <%= @profile.age %> old</li>
+      <li class="list-inline-item"><i class="fas fa-globe-americas"></i> I am from <%= @profile.nationality %></li>
+      <li class="list-inline-item"><i class="fas fa-language"></i> I speak <%= @profile.language %></li>
+    </ul>
+
+    <div class="card-body">
+      <ul class="list-inline text-center">
+        <% if policy(@profile).update? %>
+          <li class="list-inline-item"><%= link_to "Create Family", new_fam_path, class: "card-link btn btn-primary"%></li>
+        <% end %>
+        <li class="list-inline-item"><%= link_to "Edit my profile", new_fam_path, class: "card-link btn btn-primary"%></li>
+        <li class="list-inline-item"><%= link_to "Delete Profile", new_fam_path, class: "card-link btn btn-primary"%></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>My Fams</h2>
+
+  <% @profile.fams.each do |fam| %>
   <div class="card" style="width: 30rem;">
-  <% fam.pictures.each do |picture| %>
+    <% fam.pictures.each do |picture| %>
     <%= cl_image_tag picture.photo, class: "card-img-top" %>
-  <% end %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= fam.name %></h5>
       <p class="card-text"><%= fam.description %></p>
@@ -30,20 +42,21 @@
 
     <div class="card-body">
       <% if policy(@profile).update? %>
-        <%= link_to "Show", fam_path(fam), class: "card-link btn btn-primary"%>
-        <%= link_to "Delete", fam_path(fam), method: :delete, class: "card-link btn btn-primary"%>
+      <%= link_to "Show", fam_path(fam), class: "card-link btn btn-primary"%>
+      <%= link_to "Delete", fam_path(fam), method: :delete, class: "card-link btn btn-primary"%>
       <% end %>
     </div>
   </div>
-<% end %>
+  <% end %>
 
-<h2>Bookings</h2>
+  <h2>Bookings</h2>
+
 
 <% @profile.booked_families.each do |booked_fam| %>
   <div class="card" style="width: 30rem;">
   <% booked_fam.pictures.each do |picture| %>
     <%= cl_image_tag picture.photo, class: "card-img-top" %>
-  <% end %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= booked_fam.name %></h5>
       <p class="card-text"><%= booked_fam.description %></p>
@@ -56,5 +69,5 @@
       <% end %>
     </div>
   </div>
-<% end %>
-
+  <% end %>
+</div>

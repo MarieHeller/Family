@@ -7,7 +7,8 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
   </head>
 
   <body>
@@ -19,7 +20,7 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
-  <div class="footer fixed-bottom">
+  <div class="footer">
   <div class="footer-copyright">
     With <i class="fas fa-heart"></i> from Tel Aviv
   </div>

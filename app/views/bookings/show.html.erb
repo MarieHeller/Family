@@ -1,6 +1,14 @@
-<div class = "container">
-<p>Start Date: <%= @booking.start_date.strftime("%b %d, %Y") %></p>
-<p>End Date: <%= @booking.end_date.strftime("%b %d, %Y") %></p>
-<p>Number of guests: <%= @booking.number_of_guests %></p>
-<p> Status of the booking: <%= @booking.status %></p>
+<div class="container">
+  <div class = "container col-6 my-5 text-center">
+    <h2>Booking successfully</h2>
+    <br>
+    <p><strong>Start Date: </strong><%= @booking.start_date.strftime("%b %d, %Y") %></p>
+    <p><strong>End Date:</strong> <%= @booking.end_date.strftime("%b %d, %Y") %></p>
+    <p><strong>Number of guests: </strong><%= @booking.number_of_guests %></p>
+    <p> <strong>Status of the booking:</strong> <%= @booking.status %></p>
+
+    <%= link_to 'Add a review', new_booking_bookings_review_path(@booking)%>
+
+    <img src="https://media2.giphy.com/media/VzQ9PUdifClRm/giphy.gif" alt="Friends">
+  </div>
 </div>
