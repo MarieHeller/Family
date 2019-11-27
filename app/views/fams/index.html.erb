@@ -1,38 +1,34 @@
-
-
-<div class="container-index p-4">
+<div class="container text-center pt-4">
   <h1>Find the perfect Family for you!</h1>
   <h6>We found <%= @fams.length %> families to rent</h6>
-  <div class="cards">
+</div>
+
     <% @fams.each do |fam|  %>
-    <div class="card-family">
-        <% if fam.pictures.any? %>
-          <%= cl_image_tag fam.pictures.first.photo, crop: :fill, class: "card-family-image" %>
-        <% else %>
-          <%= image_tag "default_family.jpg", crop: :fill, class: "card-family-image" %>
-        <% end %>
-      <div class="card-family-info">
-        <div>
-          <%= link_to fam_path(fam) do %>
-          <h2><%= fam.name %></h2>
+      <div class="item">
+        <div class="polaroid">
+          <% if fam.pictures.any? %>
+            <%= cl_image_tag fam.pictures.first.photo %>
+          <% else %>
+            <%= image_tag "default_family.jpg" %>
           <% end %>
-          <p><i class="fas fa-globe-americas"></i> <%= fam.cultural_experience %></p>
+          <div class="caption pt-2">
+            <%= link_to fam_path(fam) do %>
+              <h5><%= fam.name %></h5>
+            <% end %>
+            <p><i class="fas fa-globe-americas"></i> <%= fam.cultural_experience %></p>
+            <p class="text-right m-0"><%= fam.price %> €/night</p>
+          </div>
         </div>
       </div>
-      <p class="card-family-pricing"><%= fam.price %></p>
-    </div>
     <% end %>
-<!--   <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoibWFyaWVoZWxsZXIiLCJhIjoiY2syb2txZzNwMHl3dDNibnhmaG5wMTRzZyJ9.e7zokllHBPrHEGthjarzDA'>
- -->
-</div>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-</div>
 
-
+</div>
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>
 
