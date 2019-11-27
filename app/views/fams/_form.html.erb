@@ -10,7 +10,7 @@
         <%= f.input :cultural_experience,
         required: true,
         autofocus: true%>
-        <%= f.input  :members,
+        <%= f.input  :members, input_html: { min: '0', step: 'any' },
         required: true,
         autofocus: true%>
         <%= f.input :language, collection: User::LANGUAGES,
@@ -25,7 +25,7 @@
         <%= f.input  :capacity, collection: Fam::CAPACITY,
         required: true,
         autofocus: true%>
-        <%= f.input :price,
+        <%= f.input :price, input_html: { min: '0', step: 'any' },
         required: true,
         autofocus: true%>
         <%= f.input :pictures, as: :file, input_html: { multiple: true }, required: true %>

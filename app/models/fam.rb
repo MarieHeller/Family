@@ -11,12 +11,14 @@ class Fam < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true, length: { in: 6..500 }
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :housing_type, presence: true, inclusion: { in: HOUSING }
   validates :language, presence: true, inclusion: { in: LANGUAGES }
   validates :cultural_experience, presence: true
   validates :location, presence: true
   validates :capacity, presence: true, inclusion: { in: CAPACITY }
+  validates :members, presence: true, numericality: { greater_than: 0 }
+
   # validates :pictures, presence: true
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

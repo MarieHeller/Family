@@ -1,18 +1,30 @@
 // scss fams#show
 
 .container-details {
-  background-color: $orange;
   text-align: center;
-  color: white;
 }
 
 .card-details {
-  background-color: white;
-  margin: 2px 8px;
-  padding: 8px;
+  background-color: #ffffff7a;
+  margin-top: -2px;
+  padding: 10px;
   border-radius: 8px;
   color: $blue;
   text-align: left;
+}
+
+.booking-box {
+  border: 2px solid $white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.booking-box > form {
+  width: 250px;
+}
+
+.images-card {
+  justify-content: center;
 }
 
 // scss fams#index
@@ -21,6 +33,8 @@
   color: $blue;
   margin: 0px;
 }
+
+
 
 // .cards {
 //   display: grid;
