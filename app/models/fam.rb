@@ -1,6 +1,8 @@
 class Fam < ApplicationRecord
   LANGUAGES = %w(english french spanish chinese portuguese german italian russian arabic hebrew japanese korean indian)
   HOUSING = %w(house apartment castle farm camper tent houseboat treehouse)
+  CAPACITY = %w(1 2 3 4 5 6 7 8 9 10)
+
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
@@ -14,8 +16,8 @@ class Fam < ApplicationRecord
   validates :language, presence: true, inclusion: { in: LANGUAGES }
   validates :cultural_experience, presence: true
   validates :location, presence: true
+  validates :capacity, presence: true, inclusion: { in: CAPACITY }
   # validates :pictures, presence: true
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 end
-
