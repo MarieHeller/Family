@@ -5,10 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "destroying all reviews"
+Review.destroy_all
+puts "destroying all bookingsreviews"
+BookingsReview.destroy_all
+puts "destroying all bookings"
 Booking.destroy_all
+puts "destroying all pictures"
+Picture.destroy_all
+puts "destroying all fams"
 Fam.destroy_all
+puts "destroying all users"
 User.destroy_all
 
+puts "creating user 1"
 user1 = User.create!(first_name: 'David',
   last_name: 'Marciano',
   email: 'davidmarciano@gmail.com',
@@ -64,6 +74,7 @@ user5 = User.create!(first_name: 'Angela',
   gender: 'female',
   )
 
+puts "creating fam 1"
 fam = Fam.create!(
   name: "The Marcianos",
   members: 6,
@@ -78,3 +89,4 @@ fam = Fam.create!(
   user: user3
   )
 
+puts "finished creating seeds!"
