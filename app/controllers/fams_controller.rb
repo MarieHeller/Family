@@ -18,7 +18,7 @@ class FamsController < ApplicationController
       @fams = Fam.geocoded
       @markers = @fams.map do |fam|
         {
-          lat: fam.latitude,
+          lat: fam.latitudeude,
           lng: fam.longitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam })
         }

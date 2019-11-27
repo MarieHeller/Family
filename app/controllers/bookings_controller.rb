@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: []
-  before_action :set_fam, only: [:new, :create,]
+  before_action :set_fam, only: [:new, :create]
 
   def new
     @booking = Booking.new
@@ -13,13 +13,13 @@ class BookingsController < ApplicationController
     authorize @fam
     @booking.user = current_user
     @booking.fam = @fam
-
     if @booking.save
       redirect_to @booking, notice: "Successfully booked your family!"
     else
       render :new
     end
   end
+
   def show
     @booking = Booking.find(params[:id])
     authorize @booking

@@ -51,20 +51,21 @@
 
   <h2>Bookings</h2>
 
-  <% @profile.booked_families.each do |fam| %>
+
+<% @profile.booked_families.each do |booked_fam| %>
   <div class="card" style="width: 30rem;">
-    <% fam.pictures.each do |picture| %>
+  <% booked_fam.pictures.each do |picture| %>
     <%= cl_image_tag picture.photo, class: "card-img-top" %>
     <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%= fam.name %></h5>
-      <p class="card-text"><%= fam.description %></p>
+      <h5 class="card-title"><%= booked_fam.name %></h5>
+      <p class="card-text"><%= booked_fam.description %></p>
     </div>
 
     <div class="card-body">
       <% if policy(@profile).update? %>
-      <%= link_to "Show", fam_path(fam), class: "card-link btn btn-primary"%>
-      <%= link_to "Delete", fam_path(fam), method: :delete, class: "card-link btn btn-primary"%>
+        <%= link_to "Show", booking_path(booked_fam), class: "card-link btn btn-primary"%>
+        <%= link_to "Edit", edit_booking_path(booked_fam),  class: "card-link btn btn-primary"%>
       <% end %>
     </div>
   </div>
