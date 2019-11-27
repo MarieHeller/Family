@@ -1,8 +1,8 @@
 <div class="profile-page">
 
   <div class="row">
-    <div class="col-5">
-      <h1 class= "profile-header">My Profile</h1>
+    <div class="col-6">
+      <h1 class= "profile-header">Profile</h1>
       <div class="d-flex">
         <div class="wrapper">
           <div class="profile"><%= cl_image_tag @profile.photo %>
@@ -13,8 +13,8 @@
           <p class="profile-text"><%= @profile.description %></p>
           <div class= "profile-list">
             <ul>
-              <li class="list-inline-item"><i class="fas fa-birthday-cake"></i> I am <%= @profile.age %> years old</li>
-              <li class="list-inline-item"><i class="fas fa-globe-americas"></i> I am <%= @profile.nationality %></li>
+              <li class="list-inline-item"><i class="fas fa-birthday-cake"></i> <%= @profile.age %> years</li>
+              <li class="list-inline-item"><i class="fas fa-globe-americas"></i> <%= @profile.nationality %></li>
               <li class="list-inline-item"><i class="fas fa-language"></i> I speak <%= @profile.language %></li>
             </ul>
           </div>
@@ -22,30 +22,31 @@
       </div>
     </div>
 
-    <div class= "col-7">
-      <h1 class= "family-header">My Families</h1>
+    <div class= "col-6">
+      <h1 class= "family-header">Family</h1>
       <% @profile.fams.each do |fam| %>
-        <div class="d-flex">
-          <div class="wrapper">
-            <div class="family-profile"><% fam.pictures.each do |picture| %>
-              <%= cl_image_tag picture.photo, class: "card-img-top" %>
-              <% end %>
-              <div class="family-title"><%= fam.name %> </div>
-            </div>
-          </div>
+      <%= link_to fam_path(fam) do %>
 
-          <div>
-            <p class="family-caption"><%= fam.description %></p>
+      <div class="d-flex">
+        <div class="family-profile">
+          <%= cl_image_tag fam.pictures.first.photo, class: "card-img-top" %>
+          <div class="family-title"><%= fam.name %>
             <% if policy(@profile).update? %>
-              <div class="family-links">
-                <%= link_to "Show", fam_path(fam), class: "card-link btn btn-primary"%>
-                <%= link_to "Delete", fam_path(fam), method: :delete, class: "card-link btn btn-primary"%>
-              </div>
-            <% end %>
-      <% end %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
+    <% end %>
+    <div class="family-links">
+      <%= link_to fam_path(fam), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="far fa-trash-alt"></i>
+      <% end %>
+      <% end %>
+
+    </div>
+
+
   </div>
 </div>
 
@@ -53,26 +54,26 @@
 <div>
   <h2>My Bookings</h2>
   <% @profile.bookings.each do |booking| %>
-    <% booked_fam = booking.fam %>
-    <div class="card" style="width: 30rem;">
-      <% booked_fam.pictures.each do |picture| %>
-        <%= cl_image_tag picture.photo, class: "card-img-top" %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= booked_fam.name %></h5>
-        <p class="card-text"><%= booked_fam.description %></p>
-      </div>
-
-      <div class="card-body">
-        <% if policy(@profile).update? %>
-          <%= link_to "Edit", edit_booking_path(booking), class: "card-link btn btn-primary"%>
-          <%= link_to "Cancel", booking_path(booking), method: :delete,  class: "card-link btn btn-primary"%>
-        <% end %>
-        <% if booking.status == 'accepted' %>
-        <%= link_to "add a review", new_booking_bookings_review_path(booking), class: "card-link btn btn-primary" unless booking.bookings_review %>
-        <% end %>
-      </div>
+  <% booked_fam = booking.fam %>
+  <div class="card" style="width: 30rem;">
+    <% booked_fam.pictures.each do |picture| %>
+    <%= cl_image_tag picture.photo, class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= booked_fam.name %></h5>
+      <p class="card-text"><%= booked_fam.description %></p>
     </div>
+
+    <div class="card-body">
+      <% if policy(@profile).update? %>
+      <%= link_to "Edit", edit_booking_path(booking), class: "card-link btn btn-primary"%>
+      <%= link_to "Cancel", booking_path(booking), method: :delete,  class: "card-link btn btn-primary"%>
+      <% end %>
+      <% if booking.status == 'accepted' %>
+      <%= link_to "add a review", new_booking_bookings_review_path(booking), class: "card-link btn btn-primary" unless booking.bookings_review %>
+      <% end %>
+    </div>
+  </div>
   <% end %>
 
 
@@ -81,14 +82,14 @@
   <h2>Requests</h2>
 
   <% my_fam = @profile.fams.each do |fam| %>
-    <div>
-      <% fam.bookings.each do |book| %>
-        <% user = User.find(book.user_id) %>
-        <p><%= user.first_name %> wants to book your family</p>
-        <p>From: <%= book.start_date %></p>
-        <p>To: <%= book.end_date %></p>
-        <%= link_to "Show", booking_path(book), class: "card-link btn btn-primary" %>
-      <% end %>
-    </div>
+  <div>
+    <% fam.bookings.each do |book| %>
+    <% user = User.find(book.user_id) %>
+    <p><%= user.first_name %> wants to book your family</p>
+    <p>From: <%= book.start_date %></p>
+    <p>To: <%= book.end_date %></p>
+    <%= link_to "Show", booking_path(book), class: "card-link btn btn-primary" %>
+    <% end %>
+  </div>
   <% end %>
 </div>
