@@ -5,6 +5,14 @@ class FamsController < ApplicationController
   def index
     if params[:search]
       @fams = policy_scope(Fam).where(location: params[:search][:location])
+            @markers = @fams.map do |fam|
+        {
+          lat: fam.latitude,
+          lng: fam.longitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam })
+        }
+      end
+
     else
       @fams = policy_scope(Fam).where.not(latitude: nil)
       @fams = Fam.geocoded
@@ -12,8 +20,7 @@ class FamsController < ApplicationController
         {
           lat: fam.latitude,
           lng: fam.longitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam }),
-        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam })
         }
       end
     end
