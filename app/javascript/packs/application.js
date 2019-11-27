@@ -9,3 +9,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
 
 flatpickr(".datepicker", {})
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();

@@ -5,6 +5,7 @@ class Fam < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   has_many :pictures, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true, length: { in: 6..500 }
