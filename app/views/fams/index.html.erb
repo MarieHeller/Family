@@ -1,34 +1,37 @@
-<div class="container text-center pt-4">
-  <h1>Find the perfect Family for you!</h1>
-  <h6>We found <%= @fams.length %> families to rent</h6>
-</div>
+<div class="d-flex">
+  <div class="col-8">
+    <div class="container text-center pt-4">
+      <h1>Find the perfect Family for you!</h1>
+      <h6>We found <%= @fams.length %> families to rent</h6>
+    </div>
 
-    <% @fams.each do |fam|  %>
-      <div class="item">
-        <div class="polaroid">
-          <% if fam.pictures.any? %>
-            <%= cl_image_tag fam.pictures.first.photo %>
-          <% else %>
-            <%= image_tag "default_family.jpg" %>
-          <% end %>
-          <div class="caption pt-2">
-            <%= link_to fam_path(fam) do %>
-              <h5><%= fam.name %></h5>
+      <% @fams.each do |fam|  %>
+        <div class="item">
+          <div class="polaroid">
+            <% if fam.pictures.any? %>
+              <%= cl_image_tag fam.pictures.first.photo %>
+            <% else %>
+              <%= image_tag "default_family.jpg" %>
             <% end %>
-            <p><i class="fas fa-globe-americas"></i> <%= fam.cultural_experience %></p>
-            <p class="text-right m-0"><%= fam.price %> €/night</p>
+            <div class="caption pt-2">
+              <%= link_to fam_path(fam) do %>
+                <h5><%= fam.name %></h5>
+              <% end %>
+              <p><i class="fas fa-globe-americas"></i> <%= fam.cultural_experience %></p>
+              <p class="text-right m-0"><%= fam.price %> €/night</p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+  </div>
 
+  <div class="col-4">
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+  </div>
 </div>
-  <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-</div>
-
