@@ -23,33 +23,36 @@
               <p></i> <%= fam.cultural_experience %></p>
               <p class="text-right m-0"><%= fam.price %> €/night</p>
             </div>
-
           </div>
-        <% end %>
 
+        <div>
         <% if fam.user == current_user %>
-          <%= link_to fam_path(fam), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
+        <%= link_to fam_path(fam), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="far fa-trash-alt"></i>
+        <% end %>
         <% end %>
         <% if fam.user == current_user %>
-          <%= link_to edit_fam_path(fam) do %>
-            <i class="far fa-edit"></i>
-          <% end %>
+        <%= link_to edit_fam_path(fam) do %>
+        <i class="far fa-edit"></i>
+        <% end %>
         <% end %>
         </div>
-    <% end %>
-  </div>
+        <% end %>
+
+      </div>
+      <% end %>
+    </div>
 
 
-  <div class="col-4">
-    <div
+    <div class="col-4">
+      <div
       id="map"
       style="width: 100%;
       height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+      ></div>
+    </div>
   </div>
 </div>
 </div>
