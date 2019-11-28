@@ -67,7 +67,7 @@
               <% elsif booking.status == "accepted" %>
               <p>Confirmed <i class="far fa-check-circle"></i></p>
               <% else %>
-              Declined
+              <p>Declined <i class="far fa-times-circle"></i></p>
               <% end %>
               <p><%= booked_fam.cultural_experience %></p>
               <p><strong><%= booked_fam.price %> €/night </strong></p>
@@ -90,23 +90,29 @@
   <div class="col-6">
     <div class="requests-box my-5" align="center">
       <h2>Requests</h2>
-        <% my_fam = @profile.fams.each do |fam| %>
-          <div>
-            <% fam.bookings.each do |book| %>
-              <% unless book.status == "declined" %>
-              <% user = User.find(book.user_id) %>
-              <p><%= link_to user.first_name, profile_path(user) %> wants to book your family</p>
-              <p>From: <%= book.start_date %></p>
-              <p>To: <%= book.end_date %></p>
-              <%= link_to "Show", booking_path(book), class: "card-link btn btn-primary" %>
-            <% end %>
+      <% my_fam = @profile.fams.each do |fam| %>
+        <% fam.bookings.each do |book| %>
+          <% unless book.status == "declined" %>
+            <div class="card-product">
+              <div class="card-product-infos">
+                <% user = User.find(book.user_id) %>
+                <h2><%= link_to user.first_name, profile_path(user) %> wants to book your family</h2>
+                <p>From: <%= book.start_date.strftime("%b %d, %Y") %> </p>
+                <p>To: <%= book.end_date.strftime("%b %d, %Y") %></p>
+                <% if book.status == 'accepted' %>
+                  <%= link_to 'Decline', decline_path(book), class: "card-link btn btn-flat-profile"%>
+                <% elsif book.status == 'declined' %>
+                  <p>Booking declined</p>
+                <% else %>
+                  <%= link_to 'Accept', accept_path(book), class: "card-link btn btn-flat-profile"%>
+                  <%= link_to 'Decline', decline_path(book), class: "card-link btn btn-flat-profile"%>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-          </div>
+      <% end %>
     </div>
-     <% end %>
   </div>
-  </div>
-
-
 </div>
 
