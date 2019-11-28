@@ -30,6 +30,7 @@ class FamsController < ApplicationController
     @fam = Fam.find(params[:id])
     authorize @fam
     @booking = Booking.new
+    @reviews = @fam.reviews
   end
 
   def new
