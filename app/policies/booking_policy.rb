@@ -10,7 +10,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    record.fam.user == user
+    record.user == user
   end
 
   def update?
