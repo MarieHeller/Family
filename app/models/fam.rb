@@ -5,7 +5,7 @@ class Fam < ApplicationRecord
 
   belongs_to :user
   has_many :bookings
-  has_many :reviews, through: :bookings
+  has_many :bookings_reviews, through: :bookings
   has_many :pictures, dependent: :destroy
   # has_many :reviews, dependent: :destroy
 

@@ -80,7 +80,7 @@
               <%= link_to "Cancel", booking_path(booking), method: :delete,  class: "card-link btn btn-flat-profile ml-0"%>
               <% end %>
               <% if booking.status == 'accepted' %>
-              <%= link_to "Review", new_booking_bookings_review_path(booking), class: "card-link btn btn-flat-profile ml-0" unless booking.bookings_review %>
+              <%= link_to "Review", new_booking_bookings_review_path(booking), class: "card-link btn btn-flat-profile ml-0" %>
               <% end %>
             </div>
           </div>

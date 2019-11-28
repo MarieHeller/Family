@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
 
   def destroy
     set_booking
-    @booking.delete
+    @booking.destroy
     redirect_to profile_path(current_user), notice: "Booking Canceled!"
   end
 

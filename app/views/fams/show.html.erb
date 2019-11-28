@@ -48,12 +48,15 @@
    </div>
 
     <div class="row">
-      <% if @reviews.any? %>
+      <% if @bookings_reviews.any? %>
        <div class="col-12 my-2">
         <h4>Reviews</h4>
-          <% @reviews.each do |review| %>
+          <% @bookings_reviews.each do |review| %>
             <div class="card-details">
-            <%= review.rating %> <%= review.description %> - by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %>
+              <% review.rating.times do  %>
+              *
+              <% end %>
+            <%= review.content %> - by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %>
           <% end %>
           </div>
        </div>
