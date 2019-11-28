@@ -13,7 +13,7 @@ body {
 
 .header {
   border-bottom: none;
-  padding-top: 150px;
+  padding-top: 200px;
 }
 
 
@@ -28,8 +28,12 @@ body {
   height: 28px;
   padding: 8px;
   border: 0.5px solid white;
-  background-color: transparent;
+  background-color: #ffffff24;
+}
+
+.search-location::placeholder {
   color: white;
+
 }
 
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
