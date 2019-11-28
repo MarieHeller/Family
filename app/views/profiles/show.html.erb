@@ -77,7 +77,8 @@
               <p>Declined <i class="far fa-times-circle"></i></p>
               <% end %>
               <p><%= booked_fam.cultural_experience %></p>
-              <p><strong><%= booked_fam.price %> €/night </strong></p>
+              <% day = ((booking.end_date - booking.start_date)/86400).to_i %>
+              <p><strong><%= day * booked_fam.price %> € / <%= pluralize day, "night" %></strong></p>
               <% if policy(@profile).update? && booking.status != "declined" %>
               <%= link_to "Edit", edit_booking_path(booking), class: "card-link btn btn-flat-profile"%>
               <%= link_to "Cancel", booking_path(booking), method: :delete,  class: "card-link btn btn-flat-profile ml-0"%>
@@ -106,6 +107,8 @@
                 <h2><%= link_to user.first_name.capitalize, profile_path(user) %> wants to book your family</h2>
                 <p>From: <%= book.start_date.strftime("%b %d, %Y") %> </p>
                 <p>To: <%= book.end_date.strftime("%b %d, %Y") %></p>
+                <% day = ((book.end_date - book.start_date)/86400).to_i %>
+                <p><strong><%= day * fam.price %> € / <%= pluralize day, "night" %></strong></p>
                 <% if book.status == 'accepted' %>
                   <%= link_to 'Decline', decline_path(book), class: "card-link btn btn-flat-profile"%>
                 <% elsif book.status == 'declined' %>
