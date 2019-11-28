@@ -23,6 +23,12 @@
   text-decoration: none;
   color: $blue;
 }
+
+.caption > h5 {
+  font-family: 'Shadows Into Light Two', cursive;
+  font-size: 24px;
+}
+
 .item {
   width: 30%;
   display: inline-block;
