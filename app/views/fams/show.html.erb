@@ -49,19 +49,21 @@
 
     <div class="row">
       <% if @bookings_reviews.any? %>
-       <div class="col-12 my-2">
-        <h4>Reviews</h4>
-          <% @bookings_reviews.each do |review| %>
-            <div class="card-details">
-              <% review.rating.times do  %>
-              *
-              <% end %>
-            <%= review.content %> - by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %>
-          <% end %>
+        <div class="col-12 my-2">
+          <h4>Reviews</h4>
+            <% @bookings_reviews.each do |review| %>
+              <div class="card-details my-2">
+                <% review.rating.times do  %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <br>
+                <%= review.content %>
+                <br>
+                <small><em>by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %></em></small>
+              </div>
+            <% end %>
           </div>
-       </div>
       <% end %>
     </div>
-
   </div>
 </div>

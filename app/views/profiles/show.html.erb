@@ -24,10 +24,10 @@
       <div class="d-flex align-items-center">
         <h1 class= "family-header">Family</h1>
         <div class="family-links mt-4 pl-4">
-          <%= link_to fam_path(@profile.fams), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= link_to fam_path(@profile.fams.first), method: :delete, data: { confirm: 'Are you sure?' } do %>
           <i class="far fa-trash-alt mt-2"></i>
           <% end %>
-          <%= link_to edit_fam_path(@profile.fams) do %>
+          <%= link_to edit_fam_path(@profile.fams.first) do %>
           <i class="far fa-edit mt-2"></i>
           <% end %>
         </div>
