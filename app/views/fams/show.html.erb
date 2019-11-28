@@ -46,16 +46,16 @@
     </div>
 
     <div class="row">
-
-     <div class="col-12 my-2">
-      <h4>Reviews</h4>
-        <% @reviews.each do |review| %>
-          <div class="card-details">
-          <%= review.rating %> <%= review.description %> - by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %>
-        <% end %>
-        </div>
-     </div>
-
+      <% if @reviews.any? %>
+       <div class="col-12 my-2">
+        <h4>Reviews</h4>
+          <% @reviews.each do |review| %>
+            <div class="card-details">
+            <%= review.rating %> <%= review.description %> - by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %>
+          <% end %>
+          </div>
+       </div>
+      <% end %>
     </div>
 
   </div>

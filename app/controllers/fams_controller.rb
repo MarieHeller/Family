@@ -20,7 +20,8 @@ class FamsController < ApplicationController
         {
           lat: fam.latitude,
           lng: fam.longitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam })
+          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam }),
+          image_url: helpers.asset_url('https://images.vexels.com/media/users/3/146299/isolated/preview/8b25f8f2dd5d1fad767c5e8c1ed92580-family-with-child-icon-by-vexels.png')
         }
       end
     end
