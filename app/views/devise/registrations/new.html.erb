@@ -12,13 +12,13 @@
         <%= f.input    :last_name,
         required: true,
         autofocus: true%>
-        <%= f.input :language, collection: User::LANGUAGES, input_html: { multiple: true },
+        <%= f.input :language, collection: User::LANGUAGES,
         required:false
         %>
         <%= f.input  :description,
         required:true,
         autofocus:true %>
-        <%= f.input  :age,
+        <%= f.input  :age,input_html: { min: '18', step: 'any' },
         required:true,
         autofocus:true %>
         <%= f.input  :nationality,
