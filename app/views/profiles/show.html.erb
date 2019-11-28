@@ -27,6 +27,9 @@
           <%= link_to fam_path(@profile.fams), method: :delete, data: { confirm: 'Are you sure?' } do %>
           <i class="far fa-trash-alt mt-2"></i>
           <% end %>
+          <%= link_to edit_fam_path(@profile.fams) do %>
+          <i class="far fa-edit mt-2"></i>
+          <% end %>
         </div>
       </div>
       <% @profile.fams.each do |fam| %>
