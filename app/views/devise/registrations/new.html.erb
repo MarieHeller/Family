@@ -12,7 +12,7 @@
         <%= f.input    :last_name,
         required: true,
         autofocus: true%>
-        <%= f.input :language, collection: User::LANGUAGES, input_html: { multiple: true },
+        <%= f.input :language, collection: User::LANGUAGES,
         required:false
         %>
         <%= f.input  :description,
