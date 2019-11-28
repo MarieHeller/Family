@@ -33,7 +33,11 @@
       <%= link_to fam_path(fam) do %>
       <div class="d-flex">
         <div class="family-profile">
-          <%= cl_image_tag fam.pictures.first.photo, class: "card-img-top" %>
+          <% if fam.pictures.any? %>
+            <%= cl_image_tag fam.pictures.first.photo, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag 'default_family' %>
+          <% end %>
           <div class="family-title">
             <%= fam.name %>
           </div>
@@ -50,15 +54,15 @@
       <div class="card-booking-details text-center">
         <div>
           <% if current_user == @profile %>
-          <h2>My Bookings</h2>
-          <% @profile.bookings.each do |booking| %>
-          <% booked_fam = booking.fam %>
-          <%= link_to booking_path(booking) do %>
+            <h2>My Bookings</h2>
+            <% @profile.bookings.each do |booking| %>
+              <% booked_fam = booking.fam %>
+              <%= link_to booking_path(booking) do %>
           <div class="card-product">
-            <% if !booked_fam.pictures.empty? %>
-            <%= cl_image_tag booked_fam.pictures.first.photo  %>
+            <% if booked_fam.pictures.any? %>
+              <%= cl_image_tag booked_fam.pictures.first.photo %>
             <% else %>
-            <%= image_tag 'default_family' %>
+              <%= image_tag 'default_family' %>
             <% end %>
             <div class="card-product-infos">
               <h2><%= booked_fam.name %> <% user = User.find(booked_fam.user_id) %> <small> by <%= link_to user.first_name, profile_path(user) %> </small></h2>
