@@ -31,16 +31,18 @@
        </div>
      </div>
 
-      <div class="col-6">
-        <div class="booking-box my-5" align="center">
-          <h4>Book your stay with us!</h4>
-            <%= simple_form_for([@fam, @booking]) do |f| %>
-              <%= f.input :number_of_guests  %>
-              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-              <%= f.button :submit, "Book this family", class: "btn btn-primary" %>
-            <% end %>
-        </div>
+   </div>
+
+    <div class="col-6">
+      <div class="booking-box my-5" align="center">
+        <h5>Book your stay with us!</h5>
+          <%= simple_form_for([@fam, @booking]) do |f| %>
+            <%= f.input :number_of_guests  %>
+            <%= f.input :start_date, as: :string, input_html: { class: "datepicker", id: "range_start" } %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+            <p><strong>Total:  <%= @fam.price %> €</strong></p>
+            <%= f.button :submit, "Book this family", class: "btn btn-primary" %>
+          <% end %>
       </div>
 
     </div>

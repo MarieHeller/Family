@@ -2,8 +2,9 @@
   <div class = "container col-6 my-5 text-center">
     <h2>Booking successfully</h2>
     <br>
-    <p><strong>Start Date: </strong><%= @booking.start_date.strftime("%b %d, %Y") %></p>
-    <p><strong>End Date:</strong> <%= @booking.end_date.strftime("%b %d, %Y") %></p>
+    <p><strong>From: </strong><%= @booking.start_date.strftime("%b %d, %Y") %></p>
+    <p><strong>To:</strong> <%= @booking.end_date.strftime("%b %d, %Y") %></p>
+    <p>(<%= ((@booking.end_date - @booking.start_date)/86400).to_i %> days)</p>
     <p><strong>Number of guests: </strong><%= @booking.number_of_guests %></p>
     <p> <strong>Status of the booking:</strong> <%= @booking.status %></p>
 
