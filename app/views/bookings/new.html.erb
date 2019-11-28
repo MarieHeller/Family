@@ -1,23 +1,15 @@
-
-
-<h1>Bookings</h1>
-
-
-
 <div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-    <%= simple_form_for([@fam, @booking]) do |f| %>
-    <%= f.input :number_of_guests, input_html: { max: @fam.capacity.to_i }  %>
-    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.button :submit, "Book this family", class: "btn btn-primary" %>
-
-    <% end %>
-
-
-
+  <div class="row justify-content-center">
+    <div class="col-6 m-5">
+      <div class="requests-box my-5 p-5" align="center">
+        <h1>Book your Family Time</h1>
+        <%= simple_form_for([@fam, @booking]) do |f| %>
+        <%= f.input :number_of_guests, input_html: { max: @fam.capacity.to_i }  %>
+        <%= f.input :start_date, as: :string, input_html: { class: "datepicker", id: "range_start" } %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: "range_end"} %>
+        <%= f.button :submit, "Book this family", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
-
-</html>

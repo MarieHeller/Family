@@ -1,10 +1,14 @@
 <div class="container">
-  <div class = "container col-6 my-5 text-center">
-    <h2>Booking <%= @booking.status %></h2>
-    <br>
-    <p><strong>From: </strong><%= @booking.start_date.strftime("%b %d, %Y") %></p>
-    <p><strong>To:</strong> <%= @booking.end_date.strftime("%b %d, %Y") %></p>
-    <p>(<%= ((@booking.end_date - @booking.start_date)/86400).to_i %> days)</p>
-    <%= link_to "Back", profile_path(@booking.user), class: "card-link btn btn-flat" %>
+  <div class="row justify-content-center">
+    <div class="col-6 m-5">
+      <div class="requests-box my-5 p-5" align="center">
+      <h2>Booking <%= @booking.status %></h2>
+      <br>
+      <p><strong>From: </strong><%= @booking.start_date.strftime("%b %d, %Y") %></p>
+      <p><strong>To:</strong> <%= @booking.end_date.strftime("%b %d, %Y") %></p>
+      <p>(<%= ((@booking.end_date - @booking.start_date)/86400).to_i %> days)</p>
+      <%= link_to "Back", profile_path(@booking.user), class: "card-link btn btn-flat" %>
+    </div>
   </div>
+</div>
 </div>
