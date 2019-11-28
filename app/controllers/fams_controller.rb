@@ -20,7 +20,8 @@ class FamsController < ApplicationController
         {
           lat: fam.latitude,
           lng: fam.longitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam })
+          infoWindow: render_to_string(partial: "infowindow", locals: { fam: fam }),
+          image_url: helpers.asset_url('https://images.vexels.com/media/users/3/146299/isolated/preview/8b25f8f2dd5d1fad767c5e8c1ed92580-family-with-child-icon-by-vexels.png')
         }
       end
     end
@@ -30,6 +31,7 @@ class FamsController < ApplicationController
     @fam = Fam.find(params[:id])
     authorize @fam
     @booking = Booking.new
+    @reviews = @fam.reviews
   end
 
   def new
@@ -42,6 +44,7 @@ class FamsController < ApplicationController
     authorize @fam
     @fam.user = current_user
     if @fam.save
+
       create_pictures
       redirect_to @fam, notice: "Successfully uploaded your family!"
     else
@@ -63,36 +66,40 @@ class FamsController < ApplicationController
     end
   end
 
-def destroy
-  authorize @fam
-  @fam.destroy
-  redirect_to fams_path
-end
-
-def search
-  @start_date = params[:start_date]
-  @end_date = params[:end_date]
-end
-
-private
-
-def set_fam
-  @fam = Fam.find(params[:id])
-  authorize @fam
-end
-
-def fam_params
-  params.require(:fam).permit(:name, :description, :price, :housing_type, :language, :cultural_experience, :location, :pictures, :start_date, :end_date)
-end
-
-def user_params
-  params.require(:user).permit(:id, :first_name)
-end
-
-def create_pictures
-  photos = params.dig(:fam, :pictures) || []
-  photos.each do |photo|
-    @fam.pictures.create(photo: photo)
+  def destroy
+    authorize @fam
+    @fam.destroy
+    redirect_to fams_path
   end
-end
+
+  def search
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+  end
+
+  private
+
+  def set_fam
+    @fam = Fam.find(params[:id])
+    authorize @fam
+  end
+
+  def fam_params
+    params.require(:fam).permit(
+      :name, :members, :capacity, :description, :price,
+      :housing_type, :language, :cultural_experience,
+      :location, :pictures, :start_date, :end_date
+    )
+  end
+
+  def user_params
+    params.require(:user).permit(:id, :first_name)
+  end
+
+  def create_pictures
+    photos = params.dig(:fam, :pictures) || []
+    photos.each do |photo|
+      @fam.pictures.create(photo: photo)
+    end
+  end
 end

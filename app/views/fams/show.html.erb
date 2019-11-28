@@ -1,33 +1,36 @@
 <div class="polaroid-true">
-<div class="container">
+  <div class="container">
 
-  <div class="row justify-content-center">
+    <div class="row justify-content-center">
 
-    <div class="images-card pt-5">
-      <% @fam.pictures.each do |picture| %>
-      <div class="item">
+      <div class="images-card pt-5">
+        <% @fam.pictures.each do |picture| %>
+        <div class="item">
 
-        <div class="polaroid">
-          <%= cl_image_tag(picture.photo) %>
+          <div class="polaroid">
+            <%= cl_image_tag(picture.photo) %>
+          </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="container-details col-6 py-5">
-      <div class="card-details text-center">
-      <h1>We are the <%= @fam.name %></h1>
-      <h4>Come and stay with us!</h4>
-      <br>
-       <p><i class="fas fa-users"></i> <%= @fam.members %> Family members</p>
-       <p><i class="fas fa-globe-americas"></i> <%= @fam.cultural_experience %></p>
-       <p><i class="fas fa-language"></i> we speak <%= @fam.language %></p>
-       <p><i class="fas fa-home"></i> we live in a <%= @fam.housing_type %></p>
-       <br>
-       <p><%= @fam.description %></p>
+    <div class="row">
+
+      <div class="container-details col-6 py-5">
+        <div class="card-details text-center">
+        <h1>We are the <%= @fam.name %></h1>
+        <h4>Come and stay with us!</h4>
+        <br>
+         <p><i class="fas fa-users"></i> <%= @fam.members %> Family members</p>
+         <p><i class="fas fa-globe-americas"></i> <%= @fam.cultural_experience %></p>
+         <p><i class="fas fa-language"></i> we speak <%= @fam.language %></p>
+         <p><i class="fas fa-home"></i> we live in a <%= @fam.housing_type %></p>
+         <br>
+         <p><%= @fam.description %></p>
+       </div>
      </div>
+
    </div>
 
     <div class="col-6">
@@ -41,8 +44,21 @@
             <%= f.button :submit, "Book this family", class: "btn btn-primary" %>
           <% end %>
       </div>
+
     </div>
 
- </div>
-</div>
+    <div class="row">
+      <% if @reviews.any? %>
+       <div class="col-12 my-2">
+        <h4>Reviews</h4>
+          <% @reviews.each do |review| %>
+            <div class="card-details">
+            <%= review.rating %> <%= review.description %> - by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %>
+          <% end %>
+          </div>
+       </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>

@@ -18,7 +18,7 @@
         <%= f.input  :description,
         required:true,
         autofocus:true %>
-        <%= f.input  :age,
+        <%= f.input  :age,input_html: { min: '18', step: 'any' },
         required:true,
         autofocus:true %>
         <%= f.input  :nationality,
