@@ -10,22 +10,22 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.fam.user == user
   end
 
   def update?
-    record.user == user
+    record.fam.user == user
   end
 
   def destroy?
-    record.user == user
+    record.fam.user == user
   end
 
   def accept?
-    record.user == user
+    record.fam.user == user
   end
 
   def decline?
-    record.user == user
+    record.fam.user == user
   end
 end
