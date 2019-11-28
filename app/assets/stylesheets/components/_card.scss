@@ -96,8 +96,6 @@
   margin: auto
 }
 
-.container {
-}
 
 //scss profile#show
 
@@ -170,6 +168,11 @@
 
 .requests-box label {
   padding-top: 8px;
+}
+
+.card-product .card-request-infos {
+  padding: 16px;
+  padding-top: 15px;
 }
 
 

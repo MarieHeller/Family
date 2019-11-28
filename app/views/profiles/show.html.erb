@@ -101,9 +101,9 @@
         <% fam.bookings.each do |book| %>
           <% unless book.status == "declined" %>
             <div class="card-product">
-              <div class="card-product-infos">
+              <div class="card-request-infos">
                 <% user = User.find(book.user_id) %>
-                <h2><%= link_to user.first_name, profile_path(user) %> wants to book your family</h2>
+                <h2><%= link_to user.first_name.capitalize, profile_path(user) %> wants to book your family</h2>
                 <p>From: <%= book.start_date.strftime("%b %d, %Y") %> </p>
                 <p>To: <%= book.end_date.strftime("%b %d, %Y") %></p>
                 <% if book.status == 'accepted' %>
@@ -111,8 +111,8 @@
                 <% elsif book.status == 'declined' %>
                   <p>Booking declined</p>
                 <% else %>
-                  <%= link_to 'Accept', accept_path(book), class: "card-link btn btn-flat-profile"%>
-                  <%= link_to 'Decline', decline_path(book), class: "card-link btn btn-flat-profile"%>
+                  <%= link_to 'Accept', accept_path(book), class: "card-link btn btn-flat-profile ml-0"%>
+                  <%= link_to 'Decline', decline_path(book), class: "card-link btn btn-flat-profile ml-0"%>
                 <% end %>
               </div>
             </div>
