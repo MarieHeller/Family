@@ -24,11 +24,14 @@
       <div class="d-flex align-items-center">
         <h1 class= "family-header">Family</h1>
         <div class="family-links mt-4 pl-4">
-          <%= link_to fam_path(@profile.fams), method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="far fa-trash-alt mt-2"></i>
-          <% end %>
-          <%= link_to edit_fam_path(@profile.fams) do %>
-          <i class="far fa-edit mt-2"></i>
+          <% if @profile.fams.first %>
+
+            <%= link_to fam_path(@profile.fams.first), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="far fa-trash-alt mt-2"></i>
+            <% end %>
+            <%= link_to edit_fam_path(@profile.fams.first) do %>
+            <i class="far fa-edit mt-2"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -52,11 +55,11 @@
   </div>
 
 
+<% if current_user == @profile %>
   <div class="row">
     <div class="container-details col-6 py-5">
       <div class="card-booking-details text-center">
         <div>
-          <% if current_user == @profile %>
             <h2>My Bookings</h2>
             <% @profile.bookings.each do |booking| %>
               <% booked_fam = booking.fam %>
@@ -88,7 +91,6 @@
               <% end %>
             </div>
           </div>
-          <% end %>
           <% end %>
           <% end %>
         </div>
@@ -124,5 +126,6 @@
       <% end %>
     </div>
   </div>
+          <% end %>
 </div>
 

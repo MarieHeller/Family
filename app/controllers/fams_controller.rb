@@ -32,6 +32,7 @@ class FamsController < ApplicationController
     authorize @fam
     @booking = Booking.new
     @bookings_reviews = @fam.bookings_reviews
+    # @reviews = @fam.reviews
   end
 
   def new
